@@ -1,0 +1,199 @@
+<h1>Curriculum</h1>
+<h2>Datos Personales</h2>
+<div class="row">
+    <div class="col-md-4">
+        <div class="col-sm-10">
+			<b>#: </b><%= current_user.id %>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="col-sm-10">
+			<b>Nombre 1: </b><%= current_user.nombre1 %>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="col-sm-10">
+			<b>Nombre 2: </b><%= current_user.nombre2 %>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		<div class="col-sm-10">
+			<b>Apellido 1: </b> <%= current_user.apellido1 %>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="col-sm-10">
+			<b>Apellido 2: </b><%= current_user.apellido2 %>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="col-sm-10">
+			<b>Cedula: </b><%= current_user.cedula %>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="col-sm-10">
+        	<b>Profesion:</b><%= current_user.profesion %>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="col-sm-10">
+        	<b>Tarjeta Profesional:</b> <%= current_user.tarjeta_profesional %>
+        </div>
+    </div>
+	<div class="col-md-4">
+        <div class="col-sm-10">
+        	<b>Direccion:</b><%= current_user.direccion %>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="col-sm-10">
+        	<b>Fecha Nacimiento:</b><%= current_user.fecha_nacimiento %>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="col-sm-10">
+        	<b>Celular:</b><%= current_user.celular %>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="col-sm-10">
+        	<b>Telefono:</b><%= current_user.telefono %>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="col-sm-10">
+        	<b>Perfil:</b><%= current_user.perfil %>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="col-sm-10">
+        	<b>Email:</b><%= current_user.email %>
+        </div>
+    </div>
+</div>
+	
+<h2>Experiencias Laborales</h2>
+<% @experiencias_laborales.each do |experiencia_laboral| %>
+	<div class="row">
+		<div class="col-md-4">
+		    <div class="col-sm-12">
+			    <b>Empresa: </b><%= experiencia_laboral.empresa %>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="col-sm-12">
+				<b>Cargo: </b><%= experiencia_laboral.cargo %>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="col-sm-12">
+			    <b>Telefono: </b><%= experiencia_laboral.telefono %>
+			</div>
+		</div>
+		<br/>
+		<div class="col-md-4">
+			<div class="col-sm-10">
+			    <b>Fecha Incio: </b><%= experiencia_laboral.fecha_inicio %>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="col-sm-10">
+			    <b>Fecha Terminación </b><%= experiencia_laboral.fecha_terminacion %>
+			</div>
+		</div>
+	</div>
+	<br/>
+<% end %>
+
+<h2>Estudios Complementarios</h2>
+<% @estudios_complementarios.each do |estudios_complementario| %>
+	<div class="row">
+		<div class="col-md-4">
+		    <div class="col-sm-12">
+			    <b>Nombre: </b><%= estudios_complementario.nombre %>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="col-sm-12">
+				<b>Entidad: </b><%= estudios_complementario.entidad %>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="col-sm-12">
+			    <b>Fecha Terminación: </b><%= estudios_complementario.fecha_terminacion %>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="col-sm-12">
+			    <b>Intensidad Horaria: </b><%= estudios_complementario.intensidad_horaria %>
+			</div>
+		</div>
+	</div>
+<% end %>
+
+
+<h2>Informaciones Academicas</h2>
+<% @informaciones_academicas.each do |informacion_academica| %>
+	<div class="row">
+		<div class="col-md-4">
+		    <div class="col-sm-12">
+			    <b>Tipo: </b><%= informacion_academica.tipo_de_dato %>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="col-sm-12">
+				<b>Nombre: </b><%= informacion_academica.nombre %>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="col-sm-12">
+			    <b>Fecha Terminación: </b><%= informacion_academica.fecha_terminacion %>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="col-sm-12">
+			    <b>Titulo obtenido: </b><%= informacion_academica.titulo_obtenido %>
+			</div>
+		</div>
+	</div>
+<% end %>
+
+
+<h2>Referencias Personales</h2>
+<% @referencias_personales.each do |referencias_personales| %>
+	<div class="row">
+		<div class="col-md-4">
+		    <div class="col-sm-12">
+			    <b>Nombre: </b><%= referencias_personales.nombre %>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="col-sm-12">
+				<b>Telefono: </b><%= referencias_personales.telefono %>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="col-sm-12">
+			    <b>Profesión: </b><%= referencias_personales.profesion %>
+			</div>
+		</div>
+	</div>
+<% end %>
