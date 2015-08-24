@@ -1,0 +1,11 @@
+<tr id=<%= "referencias_personale_#{referencias_personale.id}" %>>
+    <td><%= link_to referencias_personale.id, edit_referencias_personale_path(referencias_personale), :remote => true %></td>
+    <td><%= referencias_personale.nombre %></td>
+    <td><%= referencias_personale.telefono %></td>
+    <td><%= referencias_personale.profesion %></td>
+    <td><%= referencias_personale.usuario_id %></td>    
+    <td>
+        <%= link_to  image_tag('view1.png'), referencias_personale, :remote => true,  :rel => "tooltip", :title => "Mostrar", :class => 'btn btn-link'%>
+        <%= link_to image_tag('editar1.png'), edit_referencias_personale_path(referencias_personale),  :remote => true,  :rel => "tooltip", :title => "Editar", :class => 'btn btn-link'%>
+    </td>
+</tr>

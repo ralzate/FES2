@@ -1,0 +1,42 @@
+<%- model_class = InformacionAcademica -%>
+<div class="page-header">
+  <h1>Informaciones Académicas</h1>
+</div>
+
+<%= form_tag request.path, :method => 'get' do %>
+<%= content_tag :label do %>
+Buscar:
+<%= text_field_tag :search, params[:search], :placeholder => "Nombre, Tipo, Titulo Obtenido" %>
+<%= submit_tag "Consultar", :name => nil %>
+<% end %>
+<% end %>
+<br />
+
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Tipo</th>
+      <th>Nombre</th>
+      <th>Fecha Terminación</th>
+      <th>Titulo Obtenido</th>
+      <th>Usuario</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @informaciones_academicas %>
+  </tbody>
+</table>
+<%= link_to image_tag('nuevo.png',),  new_informacion_academica_path,  :remote => true, :rel => "tooltip", :title => "Ingresar nueva Información Académica", :class => "btn btn-link " %>
+
+<br />
+<br />
+<div align="center">
+  <%= will_paginate @informaciones_academicas, :previous_label => '&laquo; Anterior', :next_label => 'Siguiente
+  &raquo;' %>
+</div>
+<div align="center">
+  Total Informaciones Academicas : <%= @informaciones_academicas.total_entries %>
+</div>

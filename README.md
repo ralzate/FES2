@@ -1,0 +1,2 @@
+# auth
+Devise + CanCan + rolify

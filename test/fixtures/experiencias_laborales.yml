@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: experiencias_laborales
+#
+#  id                :integer          not null, primary key
+#  empresa           :string(255)
+#  cargo             :string(255)
+#  telefono          :string(255)
+#  fecha_incio       :date
+#  fecha_terminacion :date
+#  usuario_id        :integer
+#  created_at        :datetime
+#  updated_at        :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  empresa: MyString
+  cargo: MyString
+  telefono: MyString
+  fecha_incio: 2015-08-19
+  fecha_terminacion: 2015-08-19
+  usuario_id: 
+
+two:
+  empresa: MyString
+  cargo: MyString
+  telefono: MyString
+  fecha_incio: 2015-08-19
+  fecha_terminacion: 2015-08-19
+  usuario_id: 

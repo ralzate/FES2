@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="overview.html" class="project-nav-item">Overview</a>
+          <a href="code_index.html" class="project-nav-item">Code</a>
+          <a href="smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div id="js-chart-container" class="chart-container"></div>
+
+<script type="text/javascript">
+  var turbulenceData = [{"name":"Production","x":1,"y":0},{"name":"Test","x":1,"y":0},{"name":"Development","x":1,"y":0},{"name":"Environment","x":1,"y":0},{"name":"SessionStore","x":1,"y":0},{"name":"CookiesSerializer","x":1,"y":0},{"name":"BacktraceSilencers","x":1,"y":0},{"name":"Rolify","x":1,"y":0},{"name":"SimpleForm","x":1,"y":0},{"name":"Assets","x":1,"y":0},{"name":"SimpleFormBootstrap","x":1,"y":0},{"name":"WrapParameters","x":1,"y":0},{"name":"MimeTypes","x":1,"y":0},{"name":"Inflections","x":1,"y":0},{"name":"Devise","x":1,"y":0},{"name":"FilterParameterLogging","x":1,"y":0},{"name":"Routes","x":1,"y":0},{"name":"Boot","x":1,"y":0},{"name":"Application","x":1,"y":0},{"name":"Ability","x":1,"y":3},{"name":"EstudiosComplementario","x":1,"y":0},{"name":"InformacionAcademica","x":1,"y":0},{"name":"ExperienciaLaboral","x":1,"y":0},{"name":"User","x":1,"y":0},{"name":"ReferenciasPersonale","x":1,"y":0},{"name":"Profesion","x":1,"y":0},{"name":"ProfesionesUsuario","x":1,"y":0},{"name":"Role","x":1,"y":0},{"name":"InformacionAcademicasHelper","x":1,"y":0},{"name":"ApplicationHelper","x":1,"y":0},{"name":"ProfesionesHelper","x":1,"y":0},{"name":"ExperienciasLaboralesHelper","x":1,"y":0},{"name":"ReferenciasPersonalesHelper","x":1,"y":0},{"name":"InformacionAcademicaHelper","x":1,"y":0},{"name":"ExperienciaLaboralHelper","x":1,"y":0},{"name":"InformacionesAcademicasHelper","x":1,"y":0},{"name":"EstudiosComplementariosHelper","x":1,"y":0},{"name":"ProfesionesUsuariosHelper","x":1,"y":0},{"name":"InformacionesAcademicasController","x":2,"y":39},{"name":"ExperienciasLaboralesController","x":2,"y":39},{"name":"ApplicationController","x":1,"y":7},{"name":"EstudiosComplementariosController","x":2,"y":39},{"name":"ReferenciasPersonalesController","x":2,"y":39},{"name":"ProfesionesUsuariosController","x":2,"y":39},{"name":"ProfesionesController","x":2,"y":39},{"name":"TestHelper","x":1,"y":0},{"name":"RoleTest","x":1,"y":0},{"name":"ProfesionesUsuarioTest","x":1,"y":0},{"name":"ReferenciasPersonaleTest","x":1,"y":0},{"name":"InformacionAcademicaTest","x":1,"y":0},{"name":"UserTest","x":1,"y":0},{"name":"EstudiosComplementarioTest","x":1,"y":0},{"name":"ProfesionTest","x":1,"y":0},{"name":"ExperienciaLaboralTest","x":1,"y":0},{"name":"InformacionesAcademicasHelperTest","x":1,"y":0},{"name":"InformacionAcademicasHelperTest","x":1,"y":0},{"name":"ExperienciasLaboralesHelperTest","x":1,"y":0},{"name":"ExperienciaLaboralsHelperTest","x":1,"y":0},{"name":"ReferenciasPersonalesHelperTest","x":1,"y":0},{"name":"ProfesionesUsuariosHelperTest","x":1,"y":0},{"name":"ProfesionesHelperTest","x":1,"y":0},{"name":"ExperienciaLaboralHelperTest","x":1,"y":0},{"name":"EstudiosComplementariosHelperTest","x":1,"y":0},{"name":"InformacionAcademicaHelperTest","x":1,"y":0},{"name":"EstudiosComplementariosControllerTest","x":1,"y":51},{"name":"ProfesionesUsuariosControllerTest","x":1,"y":43},{"name":"InformacionAcademicaControllerTest","x":1,"y":51},{"name":"InformacionAcademicasControllerTest","x":1,"y":51},{"name":"InformacionesAcademicasControllerTest","x":1,"y":51},{"name":"ExperienciasLaboralesControllerTest","x":1,"y":54},{"name":"ExperienciaLaboralControllerTest","x":1,"y":54},{"name":"ProfesionesControllerTest","x":1,"y":43},{"name":"ExperienciaLaboralsControllerTest","x":1,"y":54},{"name":"ReferenciasPersonalesControllerTest","x":1,"y":48},{"name":"Seeds","x":1,"y":0},{"name":"CreateProfesiones","x":1,"y":5},{"name":"CreateInformacionesAcademicas","x":1,"y":8},{"name":"RolifyCreateRoles","x":1,"y":11},{"name":"CreateEstudiosComplementarios","x":1,"y":8},{"name":"DeviseCreateUsers","x":1,"y":17},{"name":"CreateReferenciasPersonales","x":1,"y":7},{"name":"CreateProfesionesUsuarios","x":1,"y":5},{"name":"CreateExperienciasLaborales","x":1,"y":9},{"name":"Schema","x":1,"y":84}];
+</script>
+
+    </div>
+    <script src='assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='assets/javascripts/application.js'></script>
+  </body>
+</html>

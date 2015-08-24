@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="../overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="../overview.html" class="project-nav-item">Overview</a>
+          <a href="../code_index.html" class="project-nav-item">Code</a>
+          <a href="../smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-c circled-text circle">
+    C
+  </span>
+  <h2 class="file-name">Schema</h2>
+
+  <span class="file-committed-at">
+    
+      Updated <time class='js-timeago' datetime='2015-08-19 15:02:30 -0500'>2015-08-19 15:02:30 -0500</time>
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      84 complexity
+    </div>
+    <div class="file-stat">
+      N/A complexity per method
+    </div>
+    <div class="file-stat">
+      1 churn
+    </div>
+    <div class="file-stat">
+      0 methods
+    </div>
+    <div class="file-stat">
+      98 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># encoding: UTF-8
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# you&#39;ll amass, the slower it&#39;ll run and the greater likelihood for issues).
+#
+# It&#39;s strongly recommended that you check this file into your version control system.
+
+ActiveRecord::Schema.define(version: 20150819174734) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension &quot;plpgsql&quot;
+
+  create_table &quot;estudios_complementarios&quot;, force: true do |t|<ul class="nocode smells js-smells">  <li class="smell new">    <span class="description">(DuplicateCode) Similar code found in 2 nodes                        <a href="schema.html#L19" class="js-smell-location">0</a>                  <a href="schema.html#L44" class="js-smell-location">1</a>                  </span>  </li></ul>
+    t.string   &quot;nombre&quot;
+    t.string   &quot;entidad&quot;
+    t.date     &quot;fecha_terminacion&quot;
+    t.time     &quot;intensidad_horaria&quot;
+    t.integer  &quot;usuario_id&quot;
+    t.datetime &quot;created_at&quot;
+    t.datetime &quot;updated_at&quot;
+  end
+
+  add_index &quot;estudios_complementarios&quot;, [&quot;usuario_id&quot;], name: &quot;index_estudios_complementarios_on_usuario_id&quot;, using: :btree
+
+  create_table &quot;experiencias_laborales&quot;, force: true do |t|
+    t.string   &quot;empresa&quot;
+    t.string   &quot;cargo&quot;
+    t.string   &quot;telefono&quot;
+    t.date     &quot;fecha_incio&quot;
+    t.date     &quot;fecha_terminacion&quot;
+    t.integer  &quot;usuario_id&quot;
+    t.datetime &quot;created_at&quot;
+    t.datetime &quot;updated_at&quot;
+  end
+
+  add_index &quot;experiencias_laborales&quot;, [&quot;usuario_id&quot;], name: &quot;index_experiencias_laborales_on_usuario_id&quot;, using: :btree
+
+  create_table &quot;informaciones_academicas&quot;, force: true do |t|<ul class="nocode smells js-smells">  <li class="smell new">    <span class="description">(DuplicateCode) Similar code found in 2 nodes                        <a href="schema.html#L19" class="js-smell-location">0</a>                  <a href="schema.html#L44" class="js-smell-location">1</a>                  </span>  </li></ul>
+    t.string   &quot;tipo_de_dato&quot;
+    t.string   &quot;nombre&quot;
+    t.date     &quot;fecha_terminacion&quot;
+    t.string   &quot;titulo_obtenido&quot;
+    t.integer  &quot;usuario_id&quot;
+    t.datetime &quot;created_at&quot;
+    t.datetime &quot;updated_at&quot;
+  end
+
+  add_index &quot;informaciones_academicas&quot;, [&quot;usuario_id&quot;], name: &quot;index_informaciones_academicas_on_usuario_id&quot;, using: :btree
+
+  create_table &quot;profesiones&quot;, force: true do |t|<ul class="nocode smells js-smells">  <li class="smell old">    <span class="description">(DuplicateCode) Similar code found in 2 nodes                        <a href="schema.html#L56" class="js-smell-location">0</a>                  <a href="schema.html#L63" class="js-smell-location">1</a>                  </span>  </li></ul>
+    t.string   &quot;nombre&quot;
+    t.text     &quot;descripcion&quot;
+    t.datetime &quot;created_at&quot;
+    t.datetime &quot;updated_at&quot;
+  end
+
+  create_table &quot;profesiones_usuarios&quot;, force: true do |t|<ul class="nocode smells js-smells">  <li class="smell old">    <span class="description">(DuplicateCode) Similar code found in 2 nodes                        <a href="schema.html#L56" class="js-smell-location">0</a>                  <a href="schema.html#L63" class="js-smell-location">1</a>                  </span>  </li></ul>
+    t.integer  &quot;usuario_id&quot;
+    t.integer  &quot;profesion_id&quot;
+    t.datetime &quot;created_at&quot;
+    t.datetime &quot;updated_at&quot;
+  end
+
+  add_index &quot;profesiones_usuarios&quot;, [&quot;profesion_id&quot;], name: &quot;index_profesiones_usuarios_on_profesion_id&quot;, using: :btree
+  add_index &quot;profesiones_usuarios&quot;, [&quot;usuario_id&quot;], name: &quot;index_profesiones_usuarios_on_usuario_id&quot;, using: :btree
+
+  create_table &quot;referencias_personales&quot;, force: true do |t|
+    t.string   &quot;nombre&quot;
+    t.string   &quot;telefono&quot;
+    t.string   &quot;profesion&quot;
+    t.integer  &quot;usuario_id&quot;
+    t.datetime &quot;created_at&quot;
+    t.datetime &quot;updated_at&quot;
+  end
+
+  add_index &quot;referencias_personales&quot;, [&quot;usuario_id&quot;], name: &quot;index_referencias_personales_on_usuario_id&quot;, using: :btree
+
+  create_table &quot;roles&quot;, force: true do |t|
+    t.string   &quot;name&quot;
+    t.integer  &quot;resource_id&quot;
+    t.string   &quot;resource_type&quot;
+    t.datetime &quot;created_at&quot;
+    t.datetime &quot;updated_at&quot;
+  end
+
+  add_index &quot;roles&quot;, [&quot;name&quot;, &quot;resource_type&quot;, &quot;resource_id&quot;], name: &quot;index_roles_on_name_and_resource_type_and_resource_id&quot;, using: :btree
+  add_index &quot;roles&quot;, [&quot;name&quot;], name: &quot;index_roles_on_name&quot;, using: :btree
+
+  create_table &quot;users&quot;, force: true do |t|
+    t.string   &quot;nombre1&quot;,                default: &quot;&quot;, null: false
+    t.string   &quot;email&quot;,                  default: &quot;&quot;, null: false
+    t.string   &quot;encrypted_password&quot;,     default: &quot;&quot;, null: false
+    t.string   &quot;reset_password_token&quot;
+    t.datetime &quot;reset_password_sent_at&quot;
+    t.datetime &quot;remember_created_at&quot;
+    t.integer  &quot;sign_in_count&quot;,          default: 0,  null: false
+    t.datetime &quot;current_sign_in_at&quot;
+    t.datetime &quot;last_sign_in_at&quot;
+    t.string   &quot;current_sign_in_ip&quot;
+    t.string   &quot;last_sign_in_ip&quot;
+    t.datetime &quot;created_at&quot;
+    t.datetime &quot;updated_at&quot;
+  end
+
+  add_index &quot;users&quot;, [&quot;email&quot;], name: &quot;index_users_on_email&quot;, unique: true, using: :btree
+  add_index &quot;users&quot;, [&quot;reset_password_token&quot;], name: &quot;index_users_on_reset_password_token&quot;, unique: true, using: :btree
+
+  create_table &quot;users_roles&quot;, id: false, force: true do |t|
+    t.integer &quot;user_id&quot;
+    t.integer &quot;role_id&quot;
+  end
+
+  add_index &quot;users_roles&quot;, [&quot;user_id&quot;, &quot;role_id&quot;], name: &quot;index_users_roles_on_user_id_and_role_id&quot;, using: :btree
+
+end
+</code>
+
+    </div>
+    <script src='../assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='../assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='../assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='../assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='../assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='../assets/javascripts/application.js'></script>
+  </body>
+</html>

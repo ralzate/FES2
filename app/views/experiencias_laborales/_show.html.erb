@@ -1,0 +1,30 @@
+<%- model_class = ExperienciaLaboral -%>
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="$.lazybox.close()">&times;</button>
+<div class="page-header">
+<h2>Experiencia Laboral:<%= @experiencia_laboral.id %></h2>
+<table class="table table-bordered table-hover" >
+  <thead>
+    <tr class="info">
+      <th>Empresa</th>
+      <th>Cargo</th>
+      <th>Telefono</th>
+      <th>Usuario</th>
+      <th>Fecha Inicio</th>
+      <th>Fecha Terminación</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><p><%= @experiencia_laboral.empresa %></p></td>
+      <td><p><%= @experiencia_laboral.cargo %></p></td> 
+      <td><p><%= @experiencia_laboral.telefono %></p></td> 
+      <td><p><%= @experiencia_laboral.usuario_id %></p></td> 
+      <td><p><%= @experiencia_laboral.fecha_inicio %></p></td>
+      <td><p><%= @experiencia_laboral.fecha_terminacion %></p></td> 
+    </tr>
+  </tbody>
+</table>
+<div class="modal-footer">
+  <a href="#" class="btn btn-primary" onclick="$.lazybox.close()">Cerrar</a>
+</div>
+</div>

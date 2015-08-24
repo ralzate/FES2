@@ -1,0 +1,12 @@
+<tr id=<%= "informacion_academica_#{informacion_academica.id}" %>>
+    <td><%= link_to informacion_academica.id, edit_informacion_academica_path(informacion_academica), :remote => true %></td>
+    <td><%= informacion_academica.tipo_de_dato %></td>
+    <td><%= informacion_academica.nombre %></td>
+    <td><%= informacion_academica.fecha_terminacion %></td>
+    <td><%= informacion_academica.titulo_obtenido %></td>
+    <td><%= informacion_academica.usuario_id %></td>    
+    <td>
+        <%= link_to  image_tag('view1.png'), informacion_academica, :remote => true,  :rel => "tooltip", :title => "Mostrar", :class => 'btn btn-link'%>
+        <%= link_to image_tag('editar1.png'), edit_informacion_academica_path(informacion_academica),  :remote => true,  :rel => "tooltip", :title => "Editar", :class => 'btn btn-link'%>
+    </td>
+</tr>

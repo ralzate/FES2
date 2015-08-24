@@ -1,0 +1,31 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: test-postgres_development
+  pool: 5
+  username: postgres 
+  password: servidual2015
+  host: localhost
+  port: 5432
+
+
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: test-postgres_test
+  pool: 5
+  username: postgres 
+  password: servidual2015
+  host: localhost
+  port: 5432
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: test-postgres_production
+  pool: 5
+  username: postgres
+  password: servidual2015
+  host: localhost
+  port: 5432

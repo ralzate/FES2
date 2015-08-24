@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: referencias_personales
+#
+#  id         :integer          not null, primary key
+#  nombre     :string(255)
+#  telefono   :string(255)
+#  profesion  :string(255)
+#  usuario_id :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  telefono: MyString
+  profesion: MyString
+  usuario_id: 
+
+two:
+  nombre: MyString
+  telefono: MyString
+  profesion: MyString
+  usuario_id: 

@@ -1,0 +1,40 @@
+<%= simple_form_for(@informacion_academica, :html => { :multipart => true, :remote => true }) do |f| %>
+<div class="user">
+  <div class="modal-header">
+    <h4 class="modal-title"><h3>Datos Información Académica</h3></h4>
+  </div><br>
+  <div class="row">
+    <div class="col-md-2">
+      Tipo:
+    </div>
+    <div class="col-md-4">
+      <%= f.input :tipo_de_dato, :label => false,  :required => true %>
+    </div>
+    <div class="col-md-2">
+      Título obtenido:
+    </div>
+    <div class="col-md-4">
+      <%= f.input :titulo_obtenido, :label => false,  :required => true  %>
+    </div>
+  </div><br>
+  <div class="row">
+    <div class="col-md-2">
+      Nombre:
+    </div>
+    <div class="col-md-4">
+      <%= f.input :nombre, :label => false,  :required => true  %>
+    </div>
+    <div class="col-md-2">
+      Fecha Terminación:
+    </div>
+    <div class="col-md-4">
+      <%= f.input :fecha_terminacion, :label => false,  :required => true  %>
+    </div>
+  </div>
+  <%= f.hidden_field :usuario_id, :value => current_user.id %>
+</div>
+<div class="modal-footer">
+  <%= f.submit "Guardar", :class => 'btn btn-primary' %>
+  <a href="#" class="btn btn-default" onclick="$.lazybox.close()">Cerrar</a>
+</div>
+<% end %>

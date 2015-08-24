@@ -1,0 +1,28 @@
+<%- model_class = EstudiosComplementario -%>
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="$.lazybox.close()">&times;</button>
+<div class="page-header">
+  <h2>Estudio Complementario:<%= @estudios_complementario.id %></h2>
+  <table class="table table-bordered table-hover" >
+    <thead>
+      <tr class="info">
+        <th>Nombre</th>
+        <th>Entidad</th>
+        <th>Fecha Terminación</th>
+        <th>Intensidad Horaria</th>
+        <th>Usuario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><p><%= @estudios_complementario.nombre %></p></td>
+        <td><p><%= @estudios_complementario.entidad %></p></td> 
+        <td><p><%= @estudios_complementario.fecha_terminacion %></p></td> 
+        <td><p><%= @estudios_complementario.intensidad_horaria %></p></td> 
+        <td><p><%= @estudios_complementario.usuario_id %></p></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="modal-footer">
+    <a href="#" class="btn btn-primary" onclick="$.lazybox.close()">Cerrar</a>
+  </div>
+</div>

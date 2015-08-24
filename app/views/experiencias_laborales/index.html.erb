@@ -1,0 +1,42 @@
+<%- model_class = ExperienciaLaboral -%>
+<div class="page-header">
+  <h1>Experiencias Laborales</h1>
+</div>
+
+<%= form_tag request.path, :method => 'get' do %>
+<%= content_tag :label do %>
+Buscar:
+<%= text_field_tag :search, params[:search], :placeholder => "Empresa, Cargo, Telefono" %>
+<%= submit_tag "Consultar", :name => nil %>
+<% end %>
+<% end %>
+<br />
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Empresa</th>
+      <th>Cargo</th>
+      <th>Telefono</th>
+      <th>Fecha incio</th>
+      <th>fecha terminacion</th>
+      <th>Usuario</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @experiencias_laborales %>
+  </tbody>
+</table>
+<%= link_to image_tag('nuevo.png',),  new_experiencia_laboral_path,  :remote => true, :rel => "tooltip", :title => "Ingresar nueva Experiencia Laboral", :class => "btn btn-link " %>
+
+<br />
+<br />
+<div align="center">
+  <%= will_paginate @experiencias_laborales, :previous_label => '&laquo; Anterior', :next_label => 'Siguiente
+  &raquo;' %>
+</div>
+<div align="center">
+  Total Experiencias Laborales : <%= @experiencias_laborales.total_entries %>
+</div>

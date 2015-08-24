@@ -1,0 +1,41 @@
+<%- model_class = EstudiosComplementario -%>
+<div class="page-header">
+  <h1>Estudio Complementario</h1>
+</div>
+
+<%= form_tag request.path, :method => 'get' do %>
+<%= content_tag :label do %>
+Buscar:
+<%= text_field_tag :search, params[:search], :placeholder => "Nombre, Entidad" %>
+<%= submit_tag "Consultar", :name => nil %>
+<% end %>
+<% end %>
+<br />
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nombres</th>
+      <th>Entidad</th>
+      <th>Fecha Terminacion</th>
+      <th>Intensidad Horaria</th>
+      <th>Usuario</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @estudios_complementarios %>
+  </tbody>
+</table>
+<%= link_to image_tag('nuevo.png',),  new_estudios_complementario_path,  :remote => true, :rel => "tooltip", :title => "Ingresar nuevo Estudio Complementario", :class => "btn btn-link " %>
+
+<br />
+<br />
+<div align="center">
+  <%= will_paginate @estudios_complementarios, :previous_label => '&laquo; Anterior', :next_label => 'Siguiente
+  &raquo;' %>
+</div>
+<div align="center">
+  Total Estudios Complementarios : <%= @estudios_complementarios.total_entries %>
+</div>

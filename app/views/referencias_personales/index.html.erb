@@ -1,0 +1,40 @@
+<%- model_class = ProfesionesUsuario -%>
+<div class="page-header">
+  <h1>Referencias Personales</h1>
+</div>
+
+<%= form_tag request.path, :method => 'get' do %>
+<%= content_tag :label do %>
+Buscar:
+<%= text_field_tag :search, params[:search], :placeholder => "Nombre, Telefono, Profesion" %>
+<%= submit_tag "Consultar", :name => nil %>
+<% end %>
+<% end %>
+<br />
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nombre</th>
+      <th>Telefono</th>
+      <th>Profesion</th>
+      <th>Usuario</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+   <%= render @referencias_personales %>
+  </tbody>
+</table>
+<%= link_to image_tag('nuevo.png',),  new_referencias_personale_path,  :remote => true, :rel => "tooltip", :title => "Ingresar Nueva Referencia Personal", :class => "btn btn-link " %>
+
+<br />
+<br />
+<div align="center">
+  <%= will_paginate @referencias_personales, :previous_label => '&laquo; Anterior', :next_label => 'Siguiente
+  &raquo;' %>
+</div>
+<div align="center">
+  Total Referencias Academicas : <%= @referencias_personales.total_entries %>
+</div>
