@@ -1,3 +1,5 @@
+<%= javascript_include_tag "fecha" %>
+
 <%= simple_form_for(@estudios_complementario, :html => { :multipart => true, :remote => true }) do |f| %>
 <div class="user">
   <div class="modal-header">
@@ -22,7 +24,7 @@
       Fecha Terminación:
     </div>
     <div class="col-md-6">
-      <%= f.input :fecha_terminacion, :label => false,  :required => true %>
+      <%= f.input :fecha_terminacion, :as => :string, :label => false, :required => true,  :input_html => {  :class => "datepicker" } %>
     </div>
     <div class="col-md-4">
       Intensidad Horaria:
@@ -33,7 +35,6 @@
   </div>
   <%= f.hidden_field :usuario_id, :value => current_user.id %>
 
-</div>
 <div class="modal-footer">
   <%= f.submit "Guardar", :class => 'btn btn-primary' %>
   <a href="#" class="btn btn-default" onclick="$.lazybox.close()">Cerrar</a>

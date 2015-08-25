@@ -13,16 +13,6 @@ class ExperienciasLaboralesController < ApplicationController
 
   def show
     @experiencias_laborales = ExperienciaLaboral.search(params[:search]).page(params[:page]).per_page(3).where usuario_id: current_user.id    
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @experiencias_laborales }
-      format.pdf do
-        pdf = ExperienciaLaboralPdf.new(@experiencias_laborales, view_context)
-        send_data pdf.render, filename:
-        "ExperienciaLaboral_#{@experiencias_laborales}.pdf",
-        type: "application/pdf", :disposition => "inline"
-      end
-    end
   end
 
   def new

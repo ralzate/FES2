@@ -1,18 +1,5 @@
 Rails.application.routes.draw do
-  get 'curriculum/new'
-
-  get 'curriculum/create'
-
-  get 'curriculum/update'
-
-  get 'curriculum/edit'
-
-  get 'curriculum/destroy'
-
-  get 'curriculum/show'
-
-  get 'curriculum/index'
-  resources :curriculum
+  resources :curriculums
   resources :profesiones
   resources :experiencias_laborales
   resources :informaciones_academicas
