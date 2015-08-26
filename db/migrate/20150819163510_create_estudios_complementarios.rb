@@ -5,7 +5,7 @@ class CreateEstudiosComplementarios < ActiveRecord::Migration
       t.string :entidad
       t.date :fecha_terminacion
       t.time :intensidad_horaria
-      t.references :usuario, index: true
+      t.references :user, index: true
 
       t.timestamps
     end

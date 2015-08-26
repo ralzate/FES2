@@ -15,13 +15,11 @@ class ReferenciasPersonale < ActiveRecord::Base
 	belongs_to :usuario
   	
   	validates :nombre, :presence => { :message => "Por Favor ingresa un nombre"}
-  	validates_format_of :nombre, :with => /[A-Z]/, :message => "Por Favor ingresa la primera letra en Mayuscula"
-	validates_format_of :nombre, :with => /\A[a-zA-Z]+\z/,  :message => "Por favor ingresa solo texto"
-	
 	validates :profesion, :presence => { :message => "Por Favor ingresa una profesion"}
-	
-	validates :telefono, :presence => { :message => "Por Favor ingresa un telefono"}
-	validates_length_of :telefono, :in => 6..20 , :message => "Por Favor ingresa un telefono valido"
+	validates_numericality_of :telefono, 
+    greater_than_or_equal_to: 1,
+    less_than_or_equal_to: 9999999999999999999999,
+    message: "Por favor ingresa un telefono valido"
 
   	def self.search(search)
 		where("nombre like '%#{search}%' or telefono like '%#{search}%' 

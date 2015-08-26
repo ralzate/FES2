@@ -1,10 +1,9 @@
 <tr id=<%= "estudios_complementario_#{estudios_complementario.id}" %>>
     <td><%= link_to estudios_complementario.id, edit_estudios_complementario_path(estudios_complementario), :remote => true %></td>
-    <td><%= estudios_complementario.nombre %></td>
-    <td><%= estudios_complementario.entidad %></td>
+    <td><%= estudios_complementario.nombre.capitalize %></td>
+    <td><%= estudios_complementario.entidad.capitalize %></td>
     <td><%= estudios_complementario.fecha_terminacion %></td>
     <td><%= estudios_complementario.intensidad_horaria %></td>
-    <td><%= estudios_complementario.usuario_id %></td>    
     <td>
         <%= link_to  image_tag('view1.png'), estudios_complementario, :remote => true,  :rel => "tooltip", :title => "Mostrar", :class => 'btn btn-link'%>
         <%= link_to image_tag('editar1.png'), edit_estudios_complementario_path(estudios_complementario),  :remote => true,  :rel => "tooltip", :title => "Editar", :class => 'btn btn-link'%>

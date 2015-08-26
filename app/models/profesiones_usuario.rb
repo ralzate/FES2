@@ -10,9 +10,10 @@
 #
 
 class ProfesionesUsuario < ActiveRecord::Base
-  belongs_to :usuario
-  belongs_to :profesion
-   	validates :usuario_id, :presence => { :message => "Por Favor Selecciona un usuario"}
+  	belongs_to :user
+  	belongs_to :profesion
+  	
+   	validates :user_id, :presence => { :message => "Por Favor Selecciona un usuario"}
   	validates :profesion_id, :presence => { :message => "Por Favor Selecciona una profesion"}
 
     def self.search(search)

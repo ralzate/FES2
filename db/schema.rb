@@ -27,12 +27,12 @@ ActiveRecord::Schema.define(version: 20150825125050) do
     t.string   "entidad"
     t.date     "fecha_terminacion"
     t.time     "intensidad_horaria"
-    t.integer  "usuario_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "estudios_complementarios", ["usuario_id"], name: "index_estudios_complementarios_on_usuario_id", using: :btree
+  add_index "estudios_complementarios", ["user_id"], name: "index_estudios_complementarios_on_user_id", using: :btree
 
   create_table "experiencias_laborales", force: true do |t|
     t.string   "empresa"
@@ -67,14 +67,14 @@ ActiveRecord::Schema.define(version: 20150825125050) do
   end
 
   create_table "profesiones_usuarios", force: true do |t|
-    t.integer  "usuario_id"
+    t.integer  "user_id"
     t.integer  "profesion_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "profesiones_usuarios", ["profesion_id"], name: "index_profesiones_usuarios_on_profesion_id", using: :btree
-  add_index "profesiones_usuarios", ["usuario_id"], name: "index_profesiones_usuarios_on_usuario_id", using: :btree
+  add_index "profesiones_usuarios", ["user_id"], name: "index_profesiones_usuarios_on_user_id", using: :btree
 
   create_table "referencias_personales", force: true do |t|
     t.string   "nombre"

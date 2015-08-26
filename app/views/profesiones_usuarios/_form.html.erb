@@ -8,13 +8,21 @@
 			Usuario:
 		</div>
 		<div class="col-md-6">
-			<%= f.input :usuario_id, :label => false,  :required => true %>
+			<%= f.label :user_id, :label => "Selecciona Tu Profesion:",  :required => true %><br/>
+            <%= f.collection_select :user_id, 
+                User.all, :id, :nombre1,
+                include_blank: '--Seleccionar--',
+                input_html:{ class: 'form-control input-sm' } %>
 		</div>
 		<div class="col-md-4">
 			Profesion:
 		</div>
 		<div class="col-md-6">
-			<%= f.input :profesion_id, :label => false,  :required => true  %>
+			<%= f.label :profesion_id, :label => "Selecciona Tu Profesion:",  :required => true %><br/>
+            <%= f.collection_select :profesion_id, 
+                Profesion.all, :id, :nombre,
+                include_blank: '--Seleccionar--',
+                input_html:{ class: 'form-control input-sm' } %>
 		</div>
 	</div>
 </div>

@@ -4,7 +4,7 @@ class EstudiosComplementariosController < ApplicationController
   respond_to :html
 
   def index
-    @estudios_complementarios = EstudiosComplementario.search(params[:search]).page(params[:page]).per_page(5).where usuario_id: current_user.id    
+    @estudios_complementarios = EstudiosComplementario.search(params[:search]).page(params[:page]).per_page(5).where user_id: current_user.id    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @estudios_complementarios }
@@ -44,6 +44,6 @@ class EstudiosComplementariosController < ApplicationController
     end
 
     def estudios_complementario_params
-      params.require(:estudios_complementario).permit(:nombre, :entidad, :fecha_terminacion, :intensidad_horaria, :usuario_id)
+      params.require(:estudios_complementario).permit(:nombre, :entidad, :fecha_terminacion, :intensidad_horaria, :user_id)
     end
 end

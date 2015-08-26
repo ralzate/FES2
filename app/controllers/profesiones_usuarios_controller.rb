@@ -4,7 +4,7 @@ class ProfesionesUsuariosController < ApplicationController
   respond_to :html
 
   def index
-    @profesiones_usuarios = ProfesionesUsuario.search(params[:search]).page(params[:page]).per_page(5).where usuario_id: current_user.id    
+    @profesiones_usuarios = ProfesionesUsuario.search(params[:search]).page(params[:page]).per_page(5)    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @profesiones_usuarios }

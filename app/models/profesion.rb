@@ -12,8 +12,6 @@
 class Profesion < ActiveRecord::Base
 	
 	validates :nombre, :presence => { :message => "Por Favor ingresa un nombre"}
-  	validates_format_of :nombre, :with => /[A-Z]/, :message => "Por Favor ingresa la primera letra en Mayuscula"
-	validates_format_of :nombre, :with => /\A[a-zA-Z]+\z/,  :message => "Por favor ingresa solo texto"
 	validates :descripcion, :presence => { :message => "Por Favor ingresa una descripción"}
 
 	def self.search(search)

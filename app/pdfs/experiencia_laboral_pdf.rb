@@ -26,9 +26,9 @@ class ExperienciaLaboralPdf < Prawn::Document
 
 	def logo_1
 	    # This inserts an image in the pdf file and sets the size of the image
-	    image "#{Rails.root}/app/assets/images/Fotos/user1.png", :at => [420, 730], :width => 90, :height => 100
+	    image "#{Rails.root}/app/assets/images/logo/logo.png", :at => [400, 730], :width => 150, :height => 90
  		t = Time.now
- 	  	draw_text  formatted = "#{t.strftime("%d-%m-%Y")}", :at => [436, 616], size: 10, style: :bold 
+ 	  	draw_text  formatted = "#{t.strftime("%d-%m-%Y")}", :at => [450, 616], size: 10, style: :bold 
 	end
 
 	def titulo_2
@@ -65,7 +65,8 @@ class ExperienciaLaboralPdf < Prawn::Document
   	def users_rows
     	[['Nombres', 'Apellidos', 'Cedula', 'Direccion']] +
       		@users.map do |user|
-      	[user.nombre1 + ' ' + user.nombre2, user.apellido1 + ' ' + user.apellido2,
+      	[user.nombre1.capitalize + ' ' + user.nombre2.capitalize, 
+      	user.apellido1.capitalize + ' ' + user.apellido2.capitalize,
       		user.cedula,  user.direccion]
     	end
 	end
@@ -76,8 +77,6 @@ class ExperienciaLaboralPdf < Prawn::Document
       	[user.profesion, user.fecha_nacimiento, user.celular, user.telefono]
     	end
 	end
-
-
 
 	def perfil_rows
 		[['Email', 'Estado Civil', 'Perfil']] +
@@ -178,9 +177,6 @@ class ExperienciaLaboralPdf < Prawn::Document
 
 	def pie_de_pagina	
 		move_down 480
-		y_position = cursor
-		image "#{Rails.root}/app/assets/images/logo/logo.png", :at => [200, y_position], :width => 140, :height => 80
-		move_down 90
 		text "www.servidual.com", size: 10, :align => :center, :style => :bold
 		text "servidual@servidual.com", size: 11, :style => :bold, :align => :center
 		text "(+574) 4440996", size: 11, :align => :center

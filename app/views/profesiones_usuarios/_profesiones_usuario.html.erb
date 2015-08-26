@@ -1,7 +1,7 @@
 <tr id=<%= "profesiones_usuario_#{profesiones_usuario.id}" %>>
 	<td><%= link_to profesiones_usuario.id, edit_profesiones_usuario_path(profesiones_usuario), :remote => true %></td>
-	<td><%= profesiones_usuario.usuario_id %></td>
-	<td><%= profesiones_usuario.profesion_id %></td>    
+	<td><%= profesiones_usuario.user.apellido1 %></td>
+	<td><%= profesiones_usuario.profesion.nombre %></td>    
 	<td>
 		<%= link_to  image_tag('view1.png'), profesiones_usuario, :remote => true,  :rel => "tooltip", :title => "Mostrar", :class => 'btn btn-link'%>
 		<%= link_to image_tag('editar1.png'), edit_profesiones_usuario_path(profesiones_usuario),  :remote => true,  :rel => "tooltip", :title => "Editar", :class => 'btn btn-link'%>

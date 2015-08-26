@@ -80,3 +80,7 @@ en:
               too_short: "La contraseña debe tener minimo 8 caracteres"
             password_confirmation:
               confirmation: "Por favor confirma tu contraseña"
+            nombre1:
+              blank: "Por favor ingresa un email" 
+              taken: "Este correo Ya existe"
+              invalid: "Correo Invalido"

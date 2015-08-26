@@ -1,7 +1,7 @@
 <tr id=<%= "profesion_#{profesion.id}" %>>
 	<td><%= link_to profesion.id, edit_profesion_path(profesion), :remote => true %></td>
-	<td><%= profesion.nombre %></td>
-	<td><%= profesion.descripcion %></td>
+	<td><%= profesion.nombre.capitalize %></td>
+	<td><%= profesion.descripcion.capitalize %></td>
 	
 	<td>
 		<%= link_to  image_tag('view1.png'), profesion, :remote => true,  :rel => "tooltip", :title => "Mostrar", :class => 'btn btn-link'%>
