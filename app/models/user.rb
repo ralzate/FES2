@@ -24,11 +24,25 @@ class User < ActiveRecord::Base
   	# :confirmable, :lockable, :timeoutable and :omniauthable
   	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-	has_many :experiencias_laborales
-	has_many :estudios_complementarios
-	has_many :curriculums
+  	has_many :experiencias_laborales
+  	has_many :estudios_complementarios
+  	has_many :curriculums
 
-	has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png"
+    validates :nombre1, :presence => { :message => "Por Favor ingresa tu nombre"}
+	  validates_format_of :nombre1, :with => /\A[a-zA-Z]+\z/,  :message => "Por favor ingresa solo texto"
+    validates :apellido1, :presence => { :message => "Por Favor ingresa tu apellido"}
+    validates_format_of :apellido1, :with => /\A[a-zA-Z]+\z/,  :message => "Por favor ingresa solo texto"
+    validates :fecha_nacimiento, :presence => { :message => "Por Favor ingresa tu Fecha de nacimiento"}
+    validates :nombre1, :presence => { :message => "Por Favor ingresa tu Cedula"}
+    validates_numericality_of :cedula, 
+    greater_than_or_equal_to: 1,
+    less_than_or_equal_to: 9999999999999999999999,
+    message: "Por favor ingresa tu cedula"
+    validates :genero, :presence => { :message => "Por Favor ingresa tu Fecha de nacimiento"}
+    validates :estado_civil, :presence => { :message => "Por Favor ingresa tu Fecha de nacimiento"}
+    has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, 
+    :default_url => "/images/:style/missing.png"
   	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
+    # Nota: Todas las imágenes guardadas se encontrarán en public/system/products/images/000/000/.z
 end

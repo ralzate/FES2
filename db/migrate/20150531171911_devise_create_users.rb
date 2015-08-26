@@ -7,6 +7,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :apellido1,           null: false, default: ""  
       t.string :apellido2,           null: false, default: ""  
       t.string :cedula,              null: false, default: ""
+      t.integer :genero,             null: false, default: ""
+      t.integer :profesion_id,       null: false, default: "" 
       t.string :profesion,           null: false, default: ""
       t.string :tarjeta_profesional, null: false, default: ""
       t.string :estado_civil,        null: false, default: ""
@@ -50,6 +52,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
+    add_index :users, :profesion_id
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
   end

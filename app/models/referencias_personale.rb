@@ -20,7 +20,6 @@ class ReferenciasPersonale < ActiveRecord::Base
 	
 	validates :profesion, :presence => { :message => "Por Favor ingresa una profesion"}
 	
-
 	validates :telefono, :presence => { :message => "Por Favor ingresa un telefono"}
 	validates_length_of :telefono, :in => 6..20 , :message => "Por Favor ingresa un telefono valido"
 

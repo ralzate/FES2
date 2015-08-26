@@ -104,6 +104,8 @@ ActiveRecord::Schema.define(version: 20150825125050) do
     t.string   "apellido1",              default: "", null: false
     t.string   "apellido2",              default: "", null: false
     t.string   "cedula",                 default: "", null: false
+    t.integer  "genero",                 default: 0,  null: false
+    t.integer  "profesion_id",           default: 0,  null: false
     t.string   "profesion",              default: "", null: false
     t.string   "tarjeta_profesional",    default: "", null: false
     t.string   "estado_civil",           default: "", null: false
@@ -131,6 +133,7 @@ ActiveRecord::Schema.define(version: 20150825125050) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["profesion_id"], name: "index_users_on_profesion_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "users_roles", id: false, force: true do |t|

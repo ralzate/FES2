@@ -9,15 +9,18 @@ class CurriculumsController < ApplicationController
     @estudios_complementarios = EstudiosComplementario.where usuario_id: current_user.id
     @informaciones_academicas = InformacionAcademica.where usuario_id: current_user.id
     @referencias_personales =  ReferenciasPersonale.where usuario_id: current_user.id
+    @users =  User.where id: current_user.id
   end
 
 
 
   def show
+    curriculum = Curriculum.find(params[:id])
     @experiencias_laborales = ExperienciaLaboral.where usuario_id: current_user.id    
     @estudios_complementarios = EstudiosComplementario.where usuario_id: current_user.id    
     @informaciones_academicas = InformacionAcademica.where usuario_id: current_user.id    
     @referencias_personales = ReferenciasPersonale.where usuario_id: current_user.id    
+    @users =  User.where id: current_user.id
 
     respond_to do |format|
       format.html # show.html.erb
