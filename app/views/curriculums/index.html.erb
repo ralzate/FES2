@@ -72,11 +72,11 @@
   <tbody>
     <% @estudios_complementarios.each do |estudio_complementario| %>
     <tr>
-      <td><%= experiencia_laboral.id %></td>
-      <td><%= experiencia_laboral.empresa %></td>
-      <td><%= experiencia_laboral.entidad %></td>
-      <td><%= experiencia_laboral.fecha_terminacion %></td>
-      <td><%= experiencia_laboral.intensidad_horaria %></td>
+      <td><%= estudio_complementario.id %></td>
+      <td><%= estudio_complementario.nombre %></td>
+      <td><%= estudio_complementario.entidad %></td>
+      <td><%= estudio_complementario.fecha_terminacion %></td>
+      <td><%= estudio_complementario.intensidad_horaria %></td>
     </tr>
     <% end %>
   </tbody>
@@ -132,24 +132,4 @@
   </tbody>
 </table>
 
-
-
-<% @referencias_personales.each do |referencias_personales| %>
-  <div class="row">
-    <div class="col-md-4">
-        <div class="col-sm-12">
-          <b>Nombre: </b><%= referencias_personales.nombre %>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="col-sm-12">
-        <b>Telefono: </b><%= referencias_personales.telefono %>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="col-sm-12">
-          <b>Profesión: </b><%= referencias_personales.profesion %>
-      </div>
-    </div>
-  </div>
-<% end %>
+<br/><br/><br/><br/><br/>

@@ -6,7 +6,7 @@ class CreateExperienciasLaborales < ActiveRecord::Migration
       t.string :telefono
       t.date :fecha_inicio
       t.date :fecha_terminacion
-      t.references :usuario, index: true
+      t.references :user, index: true
 
       t.timestamps
     end

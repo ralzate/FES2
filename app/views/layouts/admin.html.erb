@@ -12,7 +12,7 @@
     <!-- For third-generation iPad with high-resolution Retina display: -->
     <!-- Size should be 144 x 144 pixels -->
     <%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
-
+    
     <!-- For iPhone with high-resolution Retina display: -->
     <!-- Size should be 114 x 114 pixels -->
     <%= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
@@ -60,7 +60,8 @@
           <li><a class="opcion_menu"><%= link_to "Referencias Personales", referencias_personales_path  %></a></li>
           <li><a class="opcion_menu"><%= link_to "Experiencias Laborales", experiencias_laborales_path  %></a></li>
           <li><a class="opcion_menu"><%= link_to "Informaciones Academicas", informaciones_academicas_path  %></a></li>
-          <li><a class="opcion_menu"><%= link_to "Asignación Usuarios", profesiones_usuarios_path  %></a></li>
+          <li><a class="opcion_menu"><%= link_to "Roles", roles_path  %></a></li>
+          <li><a class="opcion_menu"><%= link_to "Admin Usuarios", administrar_usuarios_path  %></a></li>
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Bienvenido <%= current_user.nombre1.capitalize %> <span class="caret"></span></a>
               <ul class="dropdown-menu">

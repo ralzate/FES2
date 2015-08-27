@@ -4,7 +4,7 @@ class ReferenciasPersonalesController < ApplicationController
   respond_to :html
 
   def index
-    @referencias_personales = ReferenciasPersonale.search(params[:search]).page(params[:page]).per_page(5).where usuario_id: current_user.id    
+    @referencias_personales = ReferenciasPersonale.search(params[:search]).page(params[:page]).per_page(5).where user_id: current_user.id    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @referencias_personales }
@@ -45,6 +45,6 @@ class ReferenciasPersonalesController < ApplicationController
   end
 
   def referencias_personale_params
-    params.require(:referencias_personale).permit(:nombre, :telefono, :profesion, :usuario_id)
+    params.require(:referencias_personale).permit(:nombre, :telefono, :profesion, :user_id)
   end
 end

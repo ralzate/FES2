@@ -4,7 +4,7 @@ class InformacionesAcademicasController < ApplicationController
   respond_to :html
 
   def index
-    @informaciones_academicas = InformacionAcademica.search(params[:search]).page(params[:page]).per_page(5).where usuario_id: current_user.id    
+    @informaciones_academicas = InformacionAcademica.search(params[:search]).page(params[:page]).per_page(5).where user_id: current_user.id    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @informaciones_academicas }
@@ -45,6 +45,6 @@ class InformacionesAcademicasController < ApplicationController
   end
 
   def informacion_academica_params
-    params.require(:informacion_academica).permit(:tipo_de_dato, :nombre, :fecha_terminacion, :titulo_obtenido, :usuario_id)
+    params.require(:informacion_academica).permit(:tipo_de_dato, :nombre, :fecha_terminacion, :titulo_obtenido, :user_id)
   end
 end

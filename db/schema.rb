@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825125050) do
+ActiveRecord::Schema.define(version: 20150827212958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "administrar_usuarios", force: true do |t|
+    t.integer  "rol_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "administrar_usuarios", ["rol_id"], name: "index_administrar_usuarios_on_rol_id", using: :btree
+  add_index "administrar_usuarios", ["user_id"], name: "index_administrar_usuarios_on_user_id", using: :btree
 
   create_table "curriculums", force: true do |t|
     t.string   "usuario_id"
@@ -40,24 +50,24 @@ ActiveRecord::Schema.define(version: 20150825125050) do
     t.string   "telefono"
     t.date     "fecha_inicio"
     t.date     "fecha_terminacion"
-    t.integer  "usuario_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "experiencias_laborales", ["usuario_id"], name: "index_experiencias_laborales_on_usuario_id", using: :btree
+  add_index "experiencias_laborales", ["user_id"], name: "index_experiencias_laborales_on_user_id", using: :btree
 
   create_table "informaciones_academicas", force: true do |t|
     t.string   "tipo_de_dato"
     t.string   "nombre"
     t.date     "fecha_terminacion"
     t.string   "titulo_obtenido"
-    t.integer  "usuario_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "informaciones_academicas", ["usuario_id"], name: "index_informaciones_academicas_on_usuario_id", using: :btree
+  add_index "informaciones_academicas", ["user_id"], name: "index_informaciones_academicas_on_user_id", using: :btree
 
   create_table "profesiones", force: true do |t|
     t.string   "nombre"
@@ -66,37 +76,23 @@ ActiveRecord::Schema.define(version: 20150825125050) do
     t.datetime "updated_at"
   end
 
-  create_table "profesiones_usuarios", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "profesion_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "profesiones_usuarios", ["profesion_id"], name: "index_profesiones_usuarios_on_profesion_id", using: :btree
-  add_index "profesiones_usuarios", ["user_id"], name: "index_profesiones_usuarios_on_user_id", using: :btree
-
   create_table "referencias_personales", force: true do |t|
     t.string   "nombre"
     t.string   "telefono"
     t.string   "profesion"
-    t.integer  "usuario_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "referencias_personales", ["usuario_id"], name: "index_referencias_personales_on_usuario_id", using: :btree
+  add_index "referencias_personales", ["user_id"], name: "index_referencias_personales_on_user_id", using: :btree
 
   create_table "roles", force: true do |t|
-    t.string   "name"
-    t.integer  "resource_id"
-    t.string   "resource_type"
+    t.string   "nombre"
+    t.text     "descripcion"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
-  add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "nombre1",                default: "", null: false
@@ -135,12 +131,5 @@ ActiveRecord::Schema.define(version: 20150825125050) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["profesion_id"], name: "index_users_on_profesion_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "users_roles", id: false, force: true do |t|
-    t.integer "user_id"
-    t.integer "role_id"
-  end
-
-  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
 end

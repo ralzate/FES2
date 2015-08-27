@@ -11,6 +11,8 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 inflect.irregular 'experiencia_laboral', 'experiencias_laborales'
 inflect.irregular 'informacion_academica', 'informaciones_academicas'
 inflect.irregular 'profesion', 'profesiones'
+inflect.irregular 'rol', 'roles'
+inflect.irregular 'administrar_usuario', 'administrar_usuarios'
 
 end
 

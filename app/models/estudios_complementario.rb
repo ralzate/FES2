@@ -7,7 +7,7 @@
 #  entidad            :string(255)
 #  fecha_terminacion  :date
 #  intensidad_horaria :time
-#  usuario_id         :integer
+#  user_id            :integer
 #  created_at         :datetime
 #  updated_at         :datetime
 #

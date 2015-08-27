@@ -1,0 +1,27 @@
+<h1>Administración de los Usuarios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rol</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @administrar_usuarios.each do |administrar_usuario| %>
+      <tr>
+        <td><%= administrar_usuario.rol.nombre %></td>
+        <td><%= administrar_usuario.user.email %></td>
+        <td><%= link_to 'Show', administrar_usuario %></td>
+        <td><%= link_to 'Edit', edit_administrar_usuario_path(administrar_usuario) %></td>
+        <td><%= link_to 'Destroy', administrar_usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Administrar usuario', new_administrar_usuario_path %>

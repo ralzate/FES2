@@ -5,7 +5,7 @@ class CreateInformacionesAcademicas < ActiveRecord::Migration
       t.string :nombre
       t.date :fecha_terminacion
       t.string :titulo_obtenido
-      t.references :usuario, index: true
+      t.references :user, index: true
 
       t.timestamps
     end

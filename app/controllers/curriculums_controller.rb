@@ -5,10 +5,10 @@ class CurriculumsController < ApplicationController
 
   def index
     @curriculums = Curriculum.all
-    @experiencias_laborales = ExperienciaLaboral.where usuario_id: current_user.id
-    @estudios_complementarios = EstudiosComplementario.where usuario_id: current_user.id
-    @informaciones_academicas = InformacionAcademica.where usuario_id: current_user.id
-    @referencias_personales =  ReferenciasPersonale.where usuario_id: current_user.id
+    @experiencias_laborales = ExperienciaLaboral.where user_id: current_user.id
+    @estudios_complementarios = EstudiosComplementario.where user_id: current_user.id
+    @informaciones_academicas = InformacionAcademica.where user_id: current_user.id
+    @referencias_personales =  ReferenciasPersonale.where user_id: current_user.id
     @users =  User.where id: current_user.id
   end
 
@@ -16,10 +16,10 @@ class CurriculumsController < ApplicationController
 
   def show
     curriculum = Curriculum.find(params[:id])
-    @experiencias_laborales = ExperienciaLaboral.where usuario_id: current_user.id    
-    @estudios_complementarios = EstudiosComplementario.where usuario_id: current_user.id    
-    @informaciones_academicas = InformacionAcademica.where usuario_id: current_user.id    
-    @referencias_personales = ReferenciasPersonale.where usuario_id: current_user.id    
+    @experiencias_laborales = ExperienciaLaboral.where user_id: current_user.id    
+    @estudios_complementarios = EstudiosComplementario.where user_id: current_user.id    
+    @informaciones_academicas = InformacionAcademica.where user_id: current_user.id    
+    @referencias_personales = ReferenciasPersonale.where user_id: current_user.id    
     @users =  User.where id: current_user.id
 
     respond_to do |format|

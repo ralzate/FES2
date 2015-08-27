@@ -41,7 +41,7 @@
     <div class="col-md-6">
       <%= f.input :fecha_terminacion, :as => :string, :label => false, :required => true,  :input_html => {  :class => "datepicker " } %>
     </div>
-    <%= f.hidden_field :usuario_id, :value => current_user.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
 
 </div>

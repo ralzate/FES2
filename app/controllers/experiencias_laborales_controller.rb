@@ -4,7 +4,7 @@ class ExperienciasLaboralesController < ApplicationController
   respond_to :html
 
   def index
-    @experiencias_laborales = ExperienciaLaboral.search(params[:search]).page(params[:page]).per_page(3).where usuario_id: current_user.id    
+    @experiencias_laborales = ExperienciaLaboral.search(params[:search]).page(params[:page]).per_page(3).where user_id: current_user.id    
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @experiencias_laborales }
@@ -44,6 +44,6 @@ class ExperienciasLaboralesController < ApplicationController
   end
 
   def experiencia_laboral_params
-    params.require(:experiencia_laboral).permit(:empresa, :cargo, :telefono, :fecha_inicio, :fecha_terminacion, :usuario_id)
+    params.require(:experiencia_laboral).permit(:empresa, :cargo, :telefono, :fecha_inicio, :fecha_terminacion, :user_id)
   end
 end

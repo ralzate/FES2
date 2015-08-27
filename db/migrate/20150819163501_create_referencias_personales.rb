@@ -4,7 +4,7 @@ class CreateReferenciasPersonales < ActiveRecord::Migration
       t.string :nombre
       t.string :telefono
       t.string :profesion
-      t.references :usuario, index: true
+      t.references :user, index: true
 
       t.timestamps
     end
