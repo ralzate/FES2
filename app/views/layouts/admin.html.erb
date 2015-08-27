@@ -38,38 +38,49 @@
   </head>
   <body>
 
-    <div class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+
+          
+<nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <header class="banner navbar navbar-inverse navbar-fixed-top" role="banner">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">FES</a>
-        <% if current_user %>
-          <div class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></div>
-        <% end %>
-          <div class="navbar-collapse collapse navbar-responsive-collapse">
-            <ul class="nav navbar-nav">
-              <% if current_user %> 
-              <li><%= link_to "Profesiones", profesiones_path %></li>
-              <li><%= link_to "Estudios Complementarios", estudios_complementarios_path  %></li>
-              <li><%= link_to "Referencias Personales", referencias_personales_path  %></li>
-              <li><%= link_to "Experiencias Laborales", experiencias_laborales_path  %></li>
-              <li><%= link_to "Asignación Usuarios", profesiones_usuarios_path  %></li>
-              <li><%= link_to "Informaciones Academicas", informaciones_academicas_path  %></li>
-              <li><%= link_to "Cerrar Sesión", destroy_user_session_path, :method => :delete  %></li>
-              <li><%= link_to "Editar", edit_user_registration_path %></li>
-              <li><%= link_to "Curriculum", curriculums_path %></li>
-              <% end %>
-              <% if not current_user %> 
-              <li><%= link_to('Registrarse', new_user_registration_path)  %></li>
-              <li><%= link_to('Iniciar Sesión', new_user_session_path)  %></li>
-              <% end %>
-            </ul>
-          </div>
+        <%= link_to image_tag("logo/logofes.png"), root_path , :class => 'btn btn-link' %>
       </div>
+      <nav class="collapse navbar-collapse" role="navigation">
+        <ul id="menu-primary-navigation" class="nav navbar-nav">
+          <% if current_user %> 
+          <li><a class="opcion_menu"><%= link_to "Profesiones", profesiones_path %></a></li>
+          <li><a class="opcion_menu"><%= link_to "Referencias Personales", referencias_personales_path  %></a></li>
+          <li><a class="opcion_menu"><%= link_to "Experiencias Laborales", experiencias_laborales_path  %></a></li>
+          <li><a class="opcion_menu"><%= link_to "Informaciones Academicas", informaciones_academicas_path  %></a></li>
+          <li><a class="opcion_menu"><%= link_to "Asignación Usuarios", profesiones_usuarios_path  %></a></li>
+          <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Bienvenido <%= current_user.nombre1.capitalize %> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Mi Curriculum", curriculums_path %></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to "Actualuzar Datos", edit_user_registration_path %></li>
+                <li><%= link_to "Cerrar Sesión", destroy_user_session_path, :method => :delete  %></li>
+              </ul>
+          </li>
+          <% end %>
+          <% if not current_user %> 
+          <li><%= link_to('Registrarse', new_user_registration_path)  %></li>
+          <li><%= link_to('Iniciar Sesión', new_user_session_path)  %></li>
+          <% end %>
+        </ul>    
+      </nav>
     </div>
+    </header>
+  </div>
+</nav>
 
     <div class="container">
       <div class="row">

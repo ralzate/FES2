@@ -8,7 +8,7 @@ class InformacionesAcademicasController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @informaciones_academicas }
-      end
+    end
   end
 
   def show
@@ -35,16 +35,16 @@ class InformacionesAcademicasController < ApplicationController
   
 
   def destroy
-      @informacion_academica = InformacionAcademica.find(params[:id])
-      @informacion_academica.destroy
+    @informacion_academica = InformacionAcademica.find(params[:id])
+    @informacion_academica.destroy
   end
 
   private
-    def set_informacion_academica
-      @informacion_academica = InformacionAcademica.find(params[:id])
-    end
+  def set_informacion_academica
+    @informacion_academica = InformacionAcademica.find(params[:id])
+  end
 
-    def informacion_academica_params
-      params.require(:informacion_academica).permit(:tipo_de_dato, :nombre, :fecha_terminacion, :titulo_obtenido, :usuario_id)
-    end
+  def informacion_academica_params
+    params.require(:informacion_academica).permit(:tipo_de_dato, :nombre, :fecha_terminacion, :titulo_obtenido, :usuario_id)
+  end
 end

@@ -34,16 +34,16 @@ class EstudiosComplementariosController < ApplicationController
   end
 
   def destroy
-      @estudios_complementario = EstudiosComplementario.find(params[:id])
-      @estudios_complementario.destroy
+    @estudios_complementario = EstudiosComplementario.find(params[:id])
+    @estudios_complementario.destroy
   end
 
   private
-    def set_estudios_complementario
-      @estudios_complementario = EstudiosComplementario.find(params[:id])
-    end
+  def set_estudios_complementario
+    @estudios_complementario = EstudiosComplementario.find(params[:id])
+  end
 
-    def estudios_complementario_params
-      params.require(:estudios_complementario).permit(:nombre, :entidad, :fecha_terminacion, :intensidad_horaria, :user_id)
-    end
+  def estudios_complementario_params
+    params.require(:estudios_complementario).permit(:nombre, :entidad, :fecha_terminacion, :intensidad_horaria, :user_id)
+  end
 end

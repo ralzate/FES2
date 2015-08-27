@@ -67,3 +67,19 @@ div {
     list-style: square;
   }
 }
+.navbar-inverse .navbar-nav > li > a{
+  color:white !important;
+  font-size:15px !important;
+}
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus{
+  height: 68px;
+  background-color: #505050;
+  font-family: Helvetica, Arial, Verdana, sans-serif;
+}
+.opcion_menu{
+  margin-top:-25px;
+  position:absolute;
+}
+.dropdown-toggle{
+  margin-top:5px !important;
+}

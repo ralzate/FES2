@@ -5,7 +5,7 @@ class ExperienciasLaboralesController < ApplicationController
 
   def index
     @experiencias_laborales = ExperienciaLaboral.search(params[:search]).page(params[:page]).per_page(3).where usuario_id: current_user.id    
-      respond_to do |format|
+    respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @experiencias_laborales }
     end
@@ -34,16 +34,16 @@ class ExperienciasLaboralesController < ApplicationController
   end
   
   def destroy
-      @experiencia_laboral = ExperienciaLaboral.find(params[:id])
-      @experiencia_laboral.destroy
+    @experiencia_laboral = ExperienciaLaboral.find(params[:id])
+    @experiencia_laboral.destroy
   end
 
   private
-    def set_experiencia_laboral
-      @experiencia_laboral = ExperienciaLaboral.find(params[:id])
-    end
+  def set_experiencia_laboral
+    @experiencia_laboral = ExperienciaLaboral.find(params[:id])
+  end
 
-    def experiencia_laboral_params
-      params.require(:experiencia_laboral).permit(:empresa, :cargo, :telefono, :fecha_inicio, :fecha_terminacion, :usuario_id)
-    end
+  def experiencia_laboral_params
+    params.require(:experiencia_laboral).permit(:empresa, :cargo, :telefono, :fecha_inicio, :fecha_terminacion, :usuario_id)
+  end
 end

@@ -8,7 +8,7 @@ class ProfesionesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @profesiones }
-      end
+    end
   end
   
   def show
@@ -34,16 +34,16 @@ class ProfesionesController < ApplicationController
   end
 
   def destroy
-      @profesion = Profesion.find(params[:id])
-      @profesion.destroy
+    @profesion = Profesion.find(params[:id])
+    @profesion.destroy
   end
   
   private
-    def set_profesion
-      @profesion = Profesion.find(params[:id])
-    end
+  def set_profesion
+    @profesion = Profesion.find(params[:id])
+  end
 
-    def profesion_params
-      params.require(:profesion).permit(:nombre, :descripcion)
-    end
+  def profesion_params
+    params.require(:profesion).permit(:nombre, :descripcion)
+  end
 end

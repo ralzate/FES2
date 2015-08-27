@@ -8,7 +8,7 @@ class ReferenciasPersonalesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @referencias_personales }
-      end
+    end
   end
 
   def show
@@ -35,16 +35,16 @@ class ReferenciasPersonalesController < ApplicationController
 
 
   def destroy
-      @referencias_personale = ReferenciasPersonale.find(params[:id])
-      @referencias_personale.destroy
+    @referencias_personale = ReferenciasPersonale.find(params[:id])
+    @referencias_personale.destroy
   end
   
   private
-    def set_referencias_personale
-      @referencias_personale = ReferenciasPersonale.find(params[:id])
-    end
+  def set_referencias_personale
+    @referencias_personale = ReferenciasPersonale.find(params[:id])
+  end
 
-    def referencias_personale_params
-      params.require(:referencias_personale).permit(:nombre, :telefono, :profesion, :usuario_id)
-    end
+  def referencias_personale_params
+    params.require(:referencias_personale).permit(:nombre, :telefono, :profesion, :usuario_id)
+  end
 end

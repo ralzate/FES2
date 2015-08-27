@@ -27,12 +27,12 @@ class CurriculumsController < ApplicationController
       format.json { render json: @experiencias_laborales }
       format.pdf do
         pdf = ExperienciaLaboralPdf.new(
-        @experiencias_laborales, 
-        @estudios_complementarios,
-        @informaciones_academicas, 
-        @referencias_personales,
-        @users,
-        view_context)
+          @experiencias_laborales, 
+          @estudios_complementarios,
+          @informaciones_academicas, 
+          @referencias_personales,
+          @users,
+          view_context)
         send_data pdf.render, filename:
         "Curriculum_#{@curriculums}.pdf",
         type: "application/pdf", :disposition => "inline"
@@ -68,11 +68,11 @@ class CurriculumsController < ApplicationController
   end
 
   private
-    def set_curriculum
-      @curriculum = Curriculum.find(params[:id])
-    end
+  def set_curriculum
+    @curriculum = Curriculum.find(params[:id])
+  end
 
-    def curriculum_params
-      params.require(:curriculum).permit(:usuario_id)
-    end
+  def curriculum_params
+    params.require(:curriculum).permit(:usuario_id)
+  end
 end

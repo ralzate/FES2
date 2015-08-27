@@ -17,9 +17,9 @@
  */
 
  
-#lazybox div.team { max-width: 500px; }
+ #lazybox div.team { max-width: 500px; }
 
-.lazybox {
+ .lazybox {
   background: transparent !important;
 }
 
@@ -61,16 +61,16 @@
 
 
 .round-image-50 {
-    background-color: white;
-    border: 1px solid #d9d9d9;
-    border-radius: 25px;
-    -moz-border-radius: 25px;
-    -webkit-border-radius: 25px;
-    height: 70px;
-    width: 70px;
-    overflow: hidden;
-    text-align: center;
-    img { width: 100% }
+  background-color: white;
+  border: 1px solid #d9d9d9;
+  border-radius: 25px;
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  height: 70px;
+  width: 70px;
+  overflow: hidden;
+  text-align: center;
+  img { width: 100% }
 }
 
 .boton-registrar{
