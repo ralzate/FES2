@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   resources :estudios_complementarios
   resources :referencias_personales
   resources :informacion_academica
-  resources :profesiones_usuarios
   devise_for :users
   root to: "profesiones#index"
   # The priority is based upon order of creation: first created -> highest priority.
