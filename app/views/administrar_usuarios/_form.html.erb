@@ -1,12 +1,32 @@
-<%= simple_form_for(@administrar_usuario) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for(@administrar_usuario, :html => { :multipart => true, :remote => true }) do |f| %>
+<div class="user">
+	<div class="modal-header">
+		<h4 class="modal-title"><h3>Datos Administración Usuarios</h3></h4>
+	</div><br>
+	<div class="row">
+		<div class="col-md-4">
+			Roles:
+		</div>
+		<div class="form-group">
 
-  <div class="form-inputs">
-    <%= f.association :rol %>
-    <%= f.association :user %>
-  </div>
+		<div class="col-md-6" >
+            <%= f.collection_select :rol_id, Rol.all, :id, :nombre, { prompt: "Por favor selecciona uno", :selected => params[:search], hide_label: :true }, class: "input-sm" %> 
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+		</div>
+		</div>
+		<br/><br/>
+		<div class="col-md-4">
+			Usuarios:
+		</div>
+		<div class="col-md-6">
+            <%= f.collection_select :user_id, User.all, :id, :nombre1, { prompt: "Por favor selecciona uno", :selected => params[:search], hide_label: :true }, class: "input-sm" %> 
+		</div>
+		<br/><br/>
+	</div>
+</div>
+<div class="modal-footer">
+	<%= f.submit "Guardar", :class => 'btn btn-primary' %>
+	<a href="#" class="btn btn-default" onclick="$.lazybox.close()">Cerrar</a>
+</div>
 <% end %>
+

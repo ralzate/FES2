@@ -49,6 +49,8 @@ gem 'prawn', '~> 1.2.1'
 gem 'prawn-table', '~> 0.1.0'
 # A simple and Rubyish view helper for Rails
 gem 'active_decorator'
+# Assets for https://github.com/silviomoreto/bootstrap-select - see it for details
+gem 'bootstrap-select-rails'
 
 
 # Use ActiveModel has_secure_password

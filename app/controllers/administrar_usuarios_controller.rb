@@ -4,37 +4,40 @@ class AdministrarUsuariosController < ApplicationController
   respond_to :html
 
   def index
-    @administrar_usuarios = AdministrarUsuario.all
-    respond_with(@administrar_usuarios)
+    @administrar_usuarios = AdministrarUsuario.all   
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @administrar_usuarios }
+    end
   end
-
+  
   def show
-    respond_with(@administrar_usuario)
+    @administrar_usuario = AdministrarUsuario.find(params[:id])
   end
 
   def new
     @administrar_usuario = AdministrarUsuario.new
-    respond_with(@administrar_usuario)
   end
 
   def edit
+    @administrar_usuario = AdministrarUsuario.find(params[:id])
   end
 
   def create
     @administrar_usuario = AdministrarUsuario.new(administrar_usuario_params)
-    @administrar_usuario.save
-    respond_with(@administrar_usuario)
+    render :action => :new unless @administrar_usuario.save
   end
 
   def update
-    @administrar_usuario.update(administrar_usuario_params)
-    respond_with(@administrar_usuario)
+    @administrar_usuario = AdministrarUsuario.find(params[:id])
+    render :action => :edit unless @administrar_usuario.update_attributes(administrar_usuario_params)
   end
 
   def destroy
+    @administrar_usuario = AdministrarUsuario.find(params[:id])
     @administrar_usuario.destroy
-    respond_with(@administrar_usuario)
   end
+  
 
   private
     def set_administrar_usuario

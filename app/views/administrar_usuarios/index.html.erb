@@ -1,27 +1,22 @@
-<h1>Administración de los Usuarios</h1>
+<%- model_class = AdministrarUsuario -%>
+<div class="page-header">
+  <h1>Administración de los Usuarios</h1>
+</div>
 
-<table>
+
+<table class="table table-bordered table-hover">
   <thead>
     <tr>
+      <th>Usuario</th>
+      <th>Nombres</th>
+      <th>Apellidos</th>
+      <th>Identificacion</th>
       <th>Rol</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th>Opciones</th>
     </tr>
   </thead>
-
   <tbody>
-    <% @administrar_usuarios.each do |administrar_usuario| %>
-      <tr>
-        <td><%= administrar_usuario.rol.nombre %></td>
-        <td><%= administrar_usuario.user.email %></td>
-        <td><%= link_to 'Show', administrar_usuario %></td>
-        <td><%= link_to 'Edit', edit_administrar_usuario_path(administrar_usuario) %></td>
-        <td><%= link_to 'Destroy', administrar_usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+    <%= render @administrar_usuarios %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Administrar usuario', new_administrar_usuario_path %>
+<%= link_to image_tag('nuevo.png',),  new_administrar_usuario_path,  :remote => true, :rel => "tooltip", :title => "Nueva administracion usuario", :class => "btn btn-link " %>
