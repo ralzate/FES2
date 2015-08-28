@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(version: 20150827212958) do
     t.string   "cedula",                 default: "", null: false
     t.integer  "genero",                 default: 0,  null: false
     t.integer  "profesion_id",           default: 0,  null: false
+    t.integer  "rol_id"
     t.string   "profesion",              default: "", null: false
     t.string   "tarjeta_profesional",    default: "", null: false
     t.string   "estado_civil",           default: "", null: false

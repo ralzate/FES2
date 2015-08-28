@@ -51,14 +51,14 @@ class User < ActiveRecord::Base
 	  validates_format_of :nombre1, :with => /\A[a-zA-Z]+\z/,  :message => "Por favor ingresa solo texto", :on => :create
     validates :apellido1, :presence => { :message => "Por Favor ingresa tu apellido"}, :on => :create
     validates_format_of :apellido1, :with => /\A[a-zA-Z]+\z/,  :message => "Por favor ingresa solo texto", :on => :create
-    validates :fecha_nacimiento, :presence => { :message => "Por Favor ingresa tu Fecha de nacimiento"}, :on => :create
+    validates :fecha_nacimiento, :presence => { :message => "Por Favor ingresa tu Fecha de nacimiento"}, :on => :update
     validates :nombre1, :presence => { :message => "Por Favor ingresa tu Cedula"}, :on => :create
     validates_numericality_of :cedula, 
     greater_than_or_equal_to: 1,
     less_than_or_equal_to: 9999999999999999999999,
     message: "Por favor ingresa tu cedula", :on => :create
-    validates :genero, :presence => { :message => "Por Favor ingresa tu Fecha de nacimiento"}, :on => :create
-    validates :estado_civil, :presence => { :message => "Por Favor ingresa tu Fecha de nacimiento"}, :on => :create
+    validates :genero, :presence => { :message => "Por Favor Selecciona tu genero"}, :on => :update
+    validates :estado_civil, :presence => { :message => "Por Favor Selecciona tu estado civil"}, :on => :update
     validates_numericality_of :telefono, 
     greater_than_or_equal_to: 1,
     less_than_or_equal_to: 9999999999999999999999,
@@ -66,9 +66,9 @@ class User < ActiveRecord::Base
     validates_numericality_of :celular, 
     greater_than_or_equal_to: 1,
     less_than_or_equal_to: 9999999999999999999999,
-    message: "Por favor ingresa tu celular", :on => :create
-    validates :direccion, :presence => { :message => "Por Favor ingresa tu nombre"}, :on => :create
-    validates :perfil, :presence => { :message => "Por Favor ingresa tu nombre"}, :on => :create
+    message: "Por favor ingresa tu celular", :on => :update
+    validates :direccion, :presence => { :message => "Por Favor ingresa tu nombre"}, :on => :update
+    validates :perfil, :presence => { :message => "Por Favor ingresa tu nombre"}, :on => :update
 
 
     has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, 

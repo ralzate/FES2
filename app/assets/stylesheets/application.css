@@ -76,3 +76,26 @@
 .boton-registrar{
   margin-bottom: 30px;
 }
+
+/* esto funcionará si la resolución 
+de pantalla está entre "x" y "x" pixeles de ancho */
+@media (max-width: 1000px) and (min-width: 50px) {
+  .boton-responsive {
+  width: 100%}
+}
+
+
+/* Esconde en Moviles */
+@media (max-width: 1000px) and (min-width: 50px) {
+  .boton-oculto-moviles {
+  display: none !important;
+  }
+}
+
+
+/* Esconde en Moviles */
+@media (min-width: 1001px) {
+  .boton-oculto-escritorio {
+  display: none !important;
+  }
+}

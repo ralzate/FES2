@@ -61,7 +61,7 @@
           <li><a class="opcion_menu"><%= link_to "Informaciones Academicas", informaciones_academicas_path  %></a></li>
           <% @administrar_usuarios = AdministrarUsuario.all %>
           <% @administrar_usuarios.each do |administrar_usuario| %>
-            <% if administrar_usuario.rol_id == 2 %>
+            <% if administrar_usuario.rol_id == 1 %>
                   <li><a class="opcion_menu"><%= link_to "Admin", administrar_usuarios_path  %></a></li>
 
             <% end %>

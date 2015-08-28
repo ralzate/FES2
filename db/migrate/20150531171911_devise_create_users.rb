@@ -9,6 +9,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :cedula,              null: false, default: ""
       t.integer :genero,             null: false, default: ""
       t.integer :profesion_id,       null: false, default: "" 
+      t.integer :rol_id             
       t.string :profesion,           null: false, default: ""
       t.string :tarjeta_profesional, null: false, default: ""
       t.string :estado_civil,        null: false, default: ""
