@@ -26,6 +26,9 @@ class AdministrarUsuariosController < ApplicationController
   def create
     @administrar_usuario = AdministrarUsuario.new(administrar_usuario_params)
     render :action => :new unless @administrar_usuario.save
+
+        @rol = Rol.new(rol_params)
+    render :action => :new unless @rol.save
   end
 
   def update

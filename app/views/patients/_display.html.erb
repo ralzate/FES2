@@ -1,0 +1,89 @@
+<div>
+
+<div>
+    <div>
+    <table class="table table-bordered">
+    <thead>
+
+
+
+
+<table class="table table-bordered" style="margin-top:-30px;">
+  
+
+<tr>
+      <th  colspan="5">
+        
+                            <%= form_tag request.path, :method => 'get', :class => '' do %>
+
+<div>
+  <div class="row">
+
+    <div class="col-lg-5 ">
+
+            <div class="input-group custom-search-form">
+              <%= text_field_tag :search, params[:search], :placeholder => "Busca por el Nombre", :class => 'form-control' %>
+              <span class="input-group-btn">
+
+
+<%= button_tag(type: "submit", class: "btn principal") do %>
+              <span class="glyphicon glyphicon-search"></span>
+                          <% end %>
+
+             </span>
+             </div><!-- /input-group -->
+        </div>
+  </div>
+</div>
+                    <% end %>
+
+
+
+      </th>
+
+</tr>
+
+
+  <tr class="header">
+    <th>Paciente #</th>
+    <th>Nombres</th>
+    <th>Documento</th>
+    <th>Opciones</th>
+  </tr>
+  
+<% @patients.each do |patient| %>
+
+  <tr>
+
+
+    <td><%= patient.id %></td>
+    <td><%= patient.first_name %> <%= patient.first_surname %></td>
+    <td><%= patient.document %></td>
+
+<td>
+    <%= link_to 'Editar', edit_patient_path(patient),  :rel => "tooltip", :title => "Editar", :class => 'btn btn-primary btn-xs color_blanco principal' %>
+    <%= link_to 'Eliminar', patient, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger btn-xs color_blanco ' %>
+</td>
+
+  </tr>
+  
+<% end %>
+
+</table>
+
+
+<style type="text/css">
+
+.eliminar {
+    color: red;
+}
+
+</style>
+
+
+</div>
+<style type="text/css">
+    @import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+body{margin-top:20px;}
+.fa-fw {width: 2em;}
+</style>

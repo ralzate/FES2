@@ -1,0 +1,991 @@
+<style type="text/css">
+	.number{
+		font-size: 18px;
+	}
+</style>
+
+
+
+<% if current_user %>
+
+
+
+<div class="padding">
+
+	<div class="full col-sm-9">
+		<!-- content -->                      
+		<div class="row">
+			<!-- main col left --> 
+			<div class="col-sm-12 navbar navbar-default">
+				<header class="sb-page-header" style = "padding-bottom:0px!important">
+				  <div class="navbar navbar-default">
+				    
+				    
+				    <!--  <div id="carbonads-container">
+				        <div class="carbonad">
+				            <div id="azcarbon"></div>
+					            <script type="text/javascript">
+					            var z = document.createElement("script");
+					            z.type = "text/javascript";
+					            z.async = true;
+					            z.src = "http://engine.carbonads.com/z/51625/azcarbon_2_1_0_HORIZ";
+					            var s = document.getElementsByTagName("script")[0];
+					            s.parentNode.insertBefore(z, s);
+					            </script>
+				        	</div>
+				    	</div>
+				  	</div>--> 
+         
+				  	<%= form_tag pages_home_path, :method => 'get', remote: true, class: 'js-filter' do %>
+		              <div class="container">
+                  <h2 style = "color:#969696 !important;font-size:45px!important;text-align:center!important">Buscar Paciente</h2>
+		                <div class="row">
+		                  <div class="col-md-12">
+		                    <div class="input-group" id="adv-search">
+		                        <%= text_field_tag :search, nil, :placeholder => "Ingresa Nombre o Cedula", :class => 'form-control query' %>
+		                        <div class="input-group-btn">
+		                            <div class="btn-group" role="group">
+		                             	<%= submit_tag "Consultar", :name => nil, :class=>"btn btn-primary bs" %>
+		                            </div>
+                             
+		                        </div>
+		                    </div>
+                      
+
+                                                 <div class="row">
+                      <div class="col-md-12" style = "text-align:center">
+                        <%= link_to 'Nuevo Paciente', new_patient_path , :class=>"btn btn-primary Cr js-filter"%>
+                         </div>
+                    </div>
+
+                  
+		                  </div>
+		                </div>
+		                <br>
+		                 
+		              </div> 
+					<% end %> --> 
+					<br/>
+					
+
+				
+				</header>
+
+					<br/>  
+<div class = "personal">
+<div class="row">
+    <div class="col-md-12 jm">
+       
+           
+                <h1 class="panel-title-fd">¡Busca el paciente por Nombre o Cedula! </h1>
+          
+        
+
+
+</div>
+</div>
+
+
+</div>
+
+ <style type="text/css">
+ 
+.panel-title-fd{
+    color: #777;
+    font-size: 30px;
+    font-weight: 200;
+    /*color: #d3eced;*/
+    
+    letter-spacing: 1px;
+    text-align: center;
+     font-family: 'Open Sans', Helvetica, sans-serif;
+}
+ 
+.jm{
+   
+    text-align: center;
+
+}
+
+</style>
+
+
+
+
+
+
+
+
+<style type="text/css">
+  /*PEN STYLES*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,700);
+.blog-card {
+  transition: height 0.3s ease;
+  -webkit-transition: height 0.3s ease;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 3px 7px -3px rgba(0, 0, 0, 0.3);
+  margin: 0 auto 1.6%;
+  overflow: hidden;
+  position: relative;
+  font-size: 14px;
+  line-height: 1.45em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+ .marg
+ {
+margin-left: 15px
+
+ }
+ .bs
+ {
+background: #B3B3B3!important;
+border-color: #B3B3B3!important;
+
+
+ }
+.Cr
+{
+
+  margin-top: 20px;
+  padding: 20px 45px !important;
+  background-color: #22BEC9!important;
+  font-size: 16px;
+  border-color: #22BEC9!important;
+}
+.blog-card:hover .details {
+  left: 0;
+}
+.blog-card:hover.alt .details {
+  right: 0;
+}
+.blog-card.alt .details {
+  right: -100%;
+  left: inherit;
+}
+.blog-card .photo {
+  height: 200px;
+  position: relative;
+}
+.blog-card .photo.photo1 {
+  background: url("http://s.ytimg.com/yts/img/avatar_720-vflYJnzBZ.png") center no-repeat;
+  background-size: cover;
+}
+
+.blog-card .details {
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.6);
+  box-sizing: border-box;
+  color: #fff;
+  font-family: "Open Sans";
+  list-style: none;
+  margin: 0;
+  padding: 10px 15px;
+  height: 200px;
+  /*POSITION*/
+  position: absolute;
+  top: 0;
+  left: -100%;
+}
+.blog-card .details > li {
+  padding: 3px 0;
+}
+.blog-card .details li:before, .blog-card .details .tags ul:before {
+  font-family: FontAwesome;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.blog-card .details .author:before {
+  content: "\f007";
+}
+.blog-card .details .date:before {
+  content: "\f133";
+}
+.blog-card .details .tags ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.blog-card .details .tags ul:before {
+  content: "\f02b";
+}
+.blog-card .details .tags li {
+  display: inline-block;
+  margin-right: 3px;
+}
+.blog-card .details a {
+  color: inherit;
+  border-bottom: 1px dotted;
+}
+.blog-card .details a:hover {
+  color: #167f92;
+}
+.blog-card .description {
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+}
+.blog-card .description h1 {
+  font-family: "Roboto";
+  line-height: 1em;
+  margin: 0 0 10px 0;
+}
+.blog-card .description h2 {
+  color: #9b9b9b;
+  font-family: "Open Sans";
+  line-height: 1.2em;
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: 400;
+  margin: 1.2% 0;
+}
+.blog-card .description p {
+  position: relative;
+  margin: 0;
+  padding-top: 20px;
+}
+.blog-card .description p:after {
+  content: "";
+  background: #167f92;
+  height: 6px;
+  width: 40px;
+  /*POSITION*/
+  position: absolute;
+  top: 6px;
+  left: 0;
+}
+.blog-card .description a {
+  color: #167f92;
+  margin-bottom: 10px;
+  float: right;
+}
+.blog-card .description a:after {
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  content: "\f061";
+  font-family: FontAwesome;
+  margin-left: -10px;
+  opacity: 0;
+  vertical-align: middle;
+}
+.blog-card .description a:hover:after {
+  margin-left: 5px;
+  opacity: 1;
+}
+
+@media screen and (min-width: 600px) {
+  .blog-card {
+    height: 200px;
+    max-width: 800px;
+  }
+  .blog-card:hover .photo {
+    -webkit-transform: rotate(5deg) scale(1.3);
+        -ms-transform: rotate(5deg) scale(1.3);
+            transform: rotate(5deg) scale(1.3);
+  }
+  .blog-card:hover.alt .photo {
+    -webkit-transform: rotate(-5deg) scale(1.3);
+        -ms-transform: rotate(-5deg) scale(1.3);
+            transform: rotate(-5deg) scale(1.3);
+  }
+  .blog-card.alt .details {
+    padding-left: 30px;
+  }
+  .blog-card.alt .description {
+    float: right;
+  }
+  .blog-card.alt .description:before {
+    -webkit-transform: skewX(5deg);
+        -ms-transform: skewX(5deg);
+            transform: skewX(5deg);
+    right: -15px;
+    left: inherit;
+  }
+  .blog-card.alt .photo {
+    float: right;
+  }
+  .blog-card .photo {
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    float: left;
+    height: 100%;
+    width: 40%;
+  }
+  .blog-card .details {
+    width: 40%;
+  }
+  .blog-card .description {
+    float: left;
+    width: 60%;
+    z-index: 0;
+    height: 120%;
+  }
+  .blog-card .description:before {
+    -webkit-transform: skewX(-5deg);
+        -ms-transform: skewX(-5deg);
+            transform: skewX(-5deg);
+    content: "";
+    background: #fff;
+    width: 100%;
+    z-index: -1;
+    /*POSITION*/
+    position: absolute;
+    left: -15px;
+    top: 0;
+    bottom: 0;
+  }
+}
+
+</style>
+
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+
+
+
+
+<% if Patient.search(params[:search]).blank? %>
+
+
+
+<head>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+</head>
+
+
+<style type="text/css">
+  /* Blue Flat Button
+==================================================*/
+.btn-xlarge{
+  position: relative;
+  vertical-align: center;
+  margin: 30px;
+  /*width: 100%;*/
+  height: 100x;
+  padding: 25px 48px;
+  font-size: 28px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: #5BC0DE;
+  border: 0;
+  border-bottom: 3px solid #337AB7;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -3px #337AB7;
+  box-shadow: inset 0 -3px #337AB7;
+}
+.btn-xlarge:active {
+  top: 2px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.btn-xlarge:hover {
+  background: #b54012;
+}
+
+</style>
+
+
+
+<div class="row">
+    <div class="col-md-12">
+       
+           
+                <h1 class="panel-title-fd">¡ El Paciente que buscas no se encuentra registrado ! </h3>
+            
+         
+        
+
+
+</div>
+</div>
+<br>
+
+  
+  </div>
+  
+
+
+
+
+<style type="text/css">
+  @import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
+  @import url(https://fonts.googleapis.com/css?family=Poiret+One);
+.panel-heading-fd{
+    font-family: 'Open Sans', Helvetica, sans-serif;
+   /* background: #39b1cc;
+    background: -moz-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #51bbd2), color-stop(100%, #2d97af));
+    background: -webkit-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+    background: -o-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+    background: -ms-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+    background: linear-gradient(to bottom, #51bbd2 0%, #2d97af 100%);*/
+    color: #ffffff;
+    padding: 5px 17px 8px;
+  background-color: white;
+}
+
+.panel-title-fd{
+    color: #777;
+    font-size: 25px;
+    font-weight: 200;
+    /*color: #d3eced;*/
+    
+    letter-spacing: 1px;
+    text-align: center;
+     font-family: 'Open Sans', Helvetica, sans-serif;
+}
+.pdin{
+    padding: 10px 20px;
+    font-size: 25px;
+    
+}
+</style>
+
+
+
+
+<% end %>
+
+
+
+<style type="text/css">
+  .avatar-pasciente:hover{
+    background-color: transparent !important;
+  }
+</style>
+  
+
+
+
+
+<% else %>
+
+
+
+
+<style type="text/css">
+  /*
+
+* Based on Cover by https://twitter.com/mdo"  @mdo
+* added cover image and background color to match (green)
+*
+* Globals
+
+*/
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritence from `body` */
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+/*css for full size background image*/
+background-image: url('/assets/06.jpg')  ; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+  height: 100%;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+ 
+}
+
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%; /* For at least Firefox */
+  min-height: 100%;
+  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+          box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+}
+.site-wrapper-inner {
+  display: table-cell;
+  vertical-align: top;
+}
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Padding for spacing */
+.inner {
+  padding: 30px;
+}
+
+
+/*
+ * Header
+ */
+.masthead-brand {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.masthead-nav > li {
+  display: inline-block;
+}
+.masthead-nav > li + li {
+  margin-left: 20px;
+}
+.masthead-nav > li > a {
+  padding-right: 0;
+  padding-left: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff; /* IE8 proofing */
+  color: rgba(255,255,255,.95);
+  border-bottom: 2px solid transparent;
+}
+.masthead-nav > li > a:hover,
+.masthead-nav > li > a:focus {
+  background-color: transparent;
+  border-bottom-color: #a9a9a9;
+  border-bottom-color: rgba(255,255,255,.25);
+}
+.masthead-nav > .active > a,
+.masthead-nav > .active > a:hover,
+.masthead-nav > .active > a:focus {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+@media (min-width: 768px) {
+  .masthead-brand {
+    float: left;
+  }
+  .masthead-nav {
+    float: right;
+  }
+}
+
+
+/*
+ * Cover
+ */
+
+.cover {
+  padding: 0 20px;
+}
+.cover .btn-lg {
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+
+/*
+ * Footer
+ */
+
+.mastfoot {
+  color: #999; /* IE8 proofing */
+  color: rgba(255,255,255,.5);
+}
+
+
+/*
+ * Affix and center
+ */
+
+@media (min-width: 768px) {
+  /* Pull out the header and footer */
+  .masthead {
+    position: fixed;
+    top: 0;
+  }
+  .mastfoot {
+    position: fixed;
+    bottom: 0;
+  }
+  /* Start the vertical centering */
+  .site-wrapper-inner {
+    vertical-align: middle;
+  }
+  /* Handle the widths */
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+  }
+}
+
+@media (min-width: 992px) {
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 700px;
+  }
+}
+
+
+
+
+.colorgraph {
+  height: 7px;
+  border-top: 0;
+  background: #c4e17f;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+}
+
+</style>
+
+<br><br><br>
+<%= form_tag sessions_path, :method => :post do %>
+
+<div class="container-fluid">
+  <div >
+ <div class="card card-container"  style="border-radius:20px;">
+            <div class="row"> 
+              <div class="col-xs-6 col-md-6 col-sm-6">            <%= link_to  image_tag('Logo/logo.png', :size => "125x80"), :remote => true,  :rel => "tooltip", :title => "Mostrar", :class => 'btn btn-link logo'%>
+</div>
+
+<style type="text/css">
+  .glyphicon {
+    font-size: 30px;
+    float: right;
+    margin-top: 2px;
+    margin-right: -6px;
+    opacity: .65;
+
+}
+</style>
+              <div class="col-xs-6 col-md-6 col-sm-6">
+              <i class="glyphicon glyphicon-lock"></i>
+              </div>
+            </div>
+
+                    <hr class="colorgraph"><br>
+
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin">
+
+                <%= text_field_tag :email, nil, class: 'form-control', required: true, :placeholder => "Nombres" %>
+                <%= password_field_tag :password, nil, class: 'form-control', required: true, :placeholder => "Clave" %>
+                <div id="remember" class="checkbox">
+                    <label>
+                      <%= check_box_tag :remember_me %>Recordar mis datos
+                    </label>
+                </div>
+                  <%= submit_tag 'Ingresar', class: 'btn btn-lg btn-primary btn-block btn-signin' %>
+
+            </form><!-- /form -->
+            <br/>
+                <%= link_to 'Olvidaste tu contraseña?', new_reset_password_path, :class => "forgot-password" %>
+        </div><!-- /card-container -->
+        </div>
+      
+</div>
+<% end %>
+<style type="text/css">
+
+
+
+
+.card-container.card {
+    max-width: 400px;
+    padding: 40px 40px;
+}
+
+.btn {
+    font-weight: 700;
+    height: 36px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+/*
+ * Card component
+ */
+.card {
+    background-color: #F7F7F7;
+    /* just in case there no content*/
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 50px;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow:2px  2px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow:2px  2px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow:2px  2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+/*
+ * Form styles
+ */
+.profile-name-card {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0 0;
+    min-height: 1em;
+}
+
+.reauth-email {
+    display: block;
+    color: #404040;
+    line-height: 2;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin #inputEmail,
+.form-signin #inputPassword {
+    direction: ltr;
+    height: 44px;
+    font-size: 16px;
+}
+
+.form-signin input[type=email],
+.form-signin input[type=password],
+.form-signin input[type=text],
+.form-signin button {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+    border-color: rgb(104, 145, 162);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+}
+
+.btn.btn-signin {
+    padding: 0px;
+    font-weight: 700;
+    font-size: 14px;
+    height: 36px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: none;
+}
+
+
+.forgot-password {
+    color: rgb(104, 145, 162);
+}
+
+.forgot-password:hover,
+.forgot-password:active,
+.forgot-password:focus{
+    color: rgb(12, 97, 33);
+}
+
+
+.login-container{
+    position: relative;
+    width: 100%;
+    margin: 80px auto;
+    padding: 20px 40px 40px;
+    text-align: center;
+    background: #F7F7F7;
+    border: 1px solid #ccc;
+}
+
+#output{
+    position: absolute;
+    width: 300px;
+    top: -75px;
+    left: 0;
+    color: #fff;
+}
+
+#output.alert-success{
+    background: rgb(25, 204, 25);
+}
+
+#output.alert-danger{
+    background: rgb(228, 105, 105);
+}
+
+
+.login-container::before,.login-container::after{
+    content: "";
+    position: absolute;
+    width: 100%;height: 100%;
+    top: 3.5px;left: 0;
+    background: #F7F7F7;
+    z-index: -1;
+    -webkit-transform: rotateZ(4deg);
+    -moz-transform: rotateZ(4deg);
+    -ms-transform: rotateZ(4deg);
+    border: 1px solid #ccc;
+
+}
+
+.login-container::after{
+    top: 5px;
+    z-index: -2;
+    -webkit-transform: rotateZ(-2deg);
+     -moz-transform: rotateZ(-2deg);
+      -ms-transform: rotateZ(-2deg);
+
+}
+
+.avatar{
+    width: 100px;height: 100px;
+    margin: 10px auto 30px;
+    border-radius: 100%;
+    border: 2px solid #aaa;
+    background-size: cover;
+}
+
+.form-box input{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    height:40px;
+    border: 1px solid #ccc;;
+    background: #fafafa;
+    transition:0.2s ease-in-out;
+
+}
+
+.form-box input:focus{
+    outline: 0;
+    background: #eee;
+}
+
+.form-box input[type="text"]{
+    border-radius: 5px 5px 0 0;
+    text-transform: lowercase;
+}
+
+.form-box input[type="password"]{
+    border-radius: 0 0 5px 5px;
+    border-top: 0;
+}
+
+.form-box button.login{
+    margin-top:15px;
+    padding: 10px 20px;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+</style>
+
+<% end %>
+
+
+
+
+
+
+
+
+                                   <% if current_user %>
+								
+<% end %>
+
+							</div>
+						</div>
+					</div><!-- /col-9 -->
+				</div><!-- /padding -->
+			</div><!-- /main -->
+		</div>
+	</div>
+</div>
+
+
+
+

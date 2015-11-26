@@ -1,0 +1,47 @@
+
+<div class="container-fluid">
+    
+      <div class="col-md-12 col-md-offset" style = "margin-bottom:10px;">
+      
+          <div class="panel-body navbar navbar-default">
+
+            <%= simple_form_for(@airport,html: { class: "form-inline pull-right"} ,:remote => true) do |f| %>
+                   <div class="form-group">
+                  <label class='control-label new_blog'>Nombre:</label>                
+                  <%= f.input :name,  placeholder: 'Campo Obligatorio', input_html: {class: "form-control new_blog"}, label: false,  :required => true %>
+
+                    </div>
+  
+
+                  <div class="form-group">
+                      <label class='control-label new_blog'>Departamento:</label>                
+                          <%= f.input :department,
+                              prompt:       'Campo Obligatorio',
+                              collection: @airport.select_department.sort,
+                              error: false, label: false, 
+                              input_html:   {class: 'form-control'} %>  
+                            
+
+                  </div>
+
+                 
+                <div class="form-group">
+                 
+                  <label class='control-label new_blog'>Ciudad:</label>      
+                  <div class="input">        
+                        <%= f.collection_select :city_id, City.all, :id, :name, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+ </div>
+                 </div>
+
+                <div class="form-group">
+                  <label class='control-label new_blog'></label>      
+                  <div class="input">        
+                        <%= f.submit "Guardar", :class => 'btn btn-primary' %>
+                  </div>
+                 </div>
+
+              <% end %>
+          </div>
+      </div>
+    </div>
+ 

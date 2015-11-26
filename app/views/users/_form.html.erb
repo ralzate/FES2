@@ -1,0 +1,300 @@
+
+
+
+<div class="col-md-12" style = "margin:25px!important">
+    <%= link_to "Listado de Usuarios",  users_path, :class => "btn btn-info color_blanco  pull-left" %>
+</div>
+
+
+
+
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+
+<div class="container-fluid">    
+        
+    <div id="loginbox" class="mainbox col-md-12 col-sm-12"> 
+        
+
+        
+
+      <style type="text/css">
+      @import url(https://fonts.googleapis.com/css?family=Roboto);
+      @import url(https://fonts.googleapis.com/css?family=Montserrat);
+      .panel-heading {
+          background-image: none;
+          background-color: #ECECEC;
+          color: #5bc0de;
+          font-family: 'Roboto', sans-serif;
+      }
+
+        .panel-title{
+          font-size: 30px;   
+        }
+        .pie_form{
+          background-image: none;
+          background-color: #ECECEC;
+          color: white;   
+        }
+        .line1
+        {
+          display: inline-block;
+          width: 30% !important;
+        }
+
+      </style>
+
+
+
+
+
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+
+
+
+        <div class="panel-heading">
+            <div class="panel-title">  
+            <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span>Datos Usuario
+            </div>
+        </div>   
+
+
+
+
+
+
+
+
+    <div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
+      <div class="row">
+            <%= simple_form_for(@user, :html => { :class => 'contact-form', :id => 'contact-form',  multipart: true }) do |f| %>
+
+
+
+
+
+
+          <% if @user.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+              <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+
+
+
+
+
+
+
+
+                <div class="row">
+
+
+<div class="col-md-3">
+                    <label class="label">Nombres</label>
+                    <div class="form-group">
+                        <%= f.text_field :names, class: "form-control ", required: true, placeholder: 'Nombres',  id: 'document'  %>
+                    </div>
+                  </div>  
+
+<div class="col-md-3">
+                    <label class="label">Apellidos</label>
+                    <div class="form-group">
+                        <%= f.text_field :surnames, class: "form-control ", required: true, placeholder: 'Apellidos',  id: 'document'  %>
+                    </div>
+                  </div>  
+
+
+
+ 
+                  <div class="col-md-3">
+                    <label class="label">Tipo Documento</label>
+                    <div class="form-group">
+                      <%= f.input :type_document,
+                              prompt:       'Seleccionar un Documento',
+                              collection: @user.select_document.sort,
+                              error: false, label: false, 
+                              input_html:   {class: 'form-control '},
+                              required: true, :selected => '1'   %>
+                    </div>
+                  </div>
+
+
+
+                <div class="col-md-3">
+                    <label class="label">Documento</label>
+                    <div class="form-group">
+                        <%= f.text_field :document, class: "form-control ", required: true, placeholder: 'Documento',  id: 'document'  %>
+                    </div>
+                  </div>  
+
+</div>
+
+                <div class="row">
+
+
+                  <div class="col-md-3">
+                    <label class="label">Rol</label>
+                    <div class="form-group" id="tagtype">
+                      <%= f.collection_select :rol_id, Rol.all, :id, :name, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+                    </div>
+                  </div>
+
+                  
+
+
+
+
+
+
+                  <div class="col-md-3">
+                    <label class="label ">Registro Medico</label>
+                    <div class="form-group">
+
+                      <%= f.text_field :medical_record, class: 'ng-binding form-control multiples', required: true, placeholder: 'Registro Medico' %>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <label class="label">Email</label>
+                    <div class="form-group">
+                      <%= f.text_field :email, class: 'form-control', required: true, placeholder: 'Email' %>
+                    </div>
+                  </div>
+
+         
+
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group">
+                      <label class="label">Cargar Imagen:</label>
+                      <div class="fileinput fileinput-new" data-provides="fileinput">
+                        <div>
+                          <span class="btn btn-default btn-file"><span class="fileinput-new"><%= f.file_field :picture, class: "form-control", id: 'button' %></span><span class="fileinput-exists">Cambiar</span><input type="file" name="..."></span>
+                          <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Eliminar</a>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+
+                </div>
+
+
+
+                <div class="row">
+
+
+                  <div class="col-md-3">
+                    <label class="label">Contraseña</label>
+      <%= f.password_field :password, class: 'form-control', :id => 'password3' %>
+    </div>
+
+
+
+                  <div class="col-md-3">
+                    <label class="label">Confirmar Contraseña</label>
+      <%= f.password_field :password_confirmation, class: 'form-control', :id => 'password4' %>
+      <div class="row">
+<div class="col-sm-12">
+<span id="pwmatch" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Las Contraseñas Concuerdan
+</div>
+</div>
+    </div>
+    </div>
+
+
+               <div class="well pie_form">
+                <div class="form-actions"  style = "text-align:center!important"> 
+                    <% if current_user %>
+                        <%= link_to "Volver al Listado", users_path, :class=>"btn btn-info color_blanco mrg" %>
+                    <% end %>
+
+
+
+                        <button type="reset" class="btn btn btn-info custom" style = "margin-right:20px;">Borrar</button>
+                        <%= f.submit "Guardar", :class => 'btn btn btn-info  custom' %>
+                    
+                </div>
+              </div>
+            <% end %>
+
+
+        </div>
+
+      </div>
+
+ 
+
+
+
+
+          
+       
+       
+
+        </fieldset>
+    </div>
+  </div>
+</div>
+
+
+
+   
+
+
+
+
+<script type="text/javascript"> 
+jQuery(document).ready(function() {
+   jQuery("#tagtype").change(function() {
+      if(jQuery(this).find("option:selected").val() == "1" ) {
+         jQuery(".multiples").prop('disabled', true);
+      }
+   });
+
+  jQuery("#tagtype").change(function() {
+      if(jQuery(this).find("option:selected").val() == "3" ) {
+         jQuery(".multiples").prop('disabled', true);
+      }
+   });
+
+  jQuery("#tagtype").change(function() {
+      if(jQuery(this).find("option:selected").val() == "2" ) {
+         jQuery(".multiples").prop('disabled', false);
+      }
+   });
+
+
+});
+</script>
+
+
+<script type="text/javascript">
+  $("input[type=password]").keyup(function(){
+    var ucase = new RegExp("[A-Z]+");
+  var lcase = new RegExp("[a-z]+");
+  var num = new RegExp("[0-9]+");
+
+  if($("#password4").val() == $("#password3").val()){
+    $("#pwmatch").removeClass("glyphicon-remove");
+    $("#pwmatch").addClass("glyphicon-ok");
+    $("#pwmatch").css("color","#00A41E");
+  }
+
+
+  else{
+    $("#pwmatch").removeClass("glyphicon-ok");
+    $("#pwmatch").addClass("glyphicon-remove");
+    $("#pwmatch").css("color","#FF0004");
+  }
+});
+</script>

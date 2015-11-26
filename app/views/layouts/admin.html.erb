@@ -59,28 +59,12 @@
           <li><a class="opcion_menu"><%= link_to "Referencias Personales", referencias_personales_path  %></a></li>
           <li><a class="opcion_menu"><%= link_to "Experiencias Laborales", experiencias_laborales_path  %></a></li>
           <li><a class="opcion_menu"><%= link_to "Informaciones Academicas", informaciones_academicas_path  %></a></li>
-          <% @administrar_usuarios = AdministrarUsuario.all %>
-          <% @administrar_usuarios.each do |administrar_usuario| %>
-            <% if administrar_usuario.rol_id == 1 %>
-                  <li><a class="opcion_menu"><%= link_to "Admin", administrar_usuarios_path  %></a></li>
+          <li><a class="opcion_menu"><%= link_to "Admin", administrar_usuarios_path  %></a></li>
+          <li><a class="opcion_menu"><%= link_to "Roles", roles_path  %></a></li>
 
-            <% end %>
-          <% end %>
-                  <li><a class="opcion_menu"><%= link_to "Roles", roles_path  %></a></li>
 
-          <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Bienvenido <%= current_user.nombre1.capitalize %> <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Mi Curriculum", curriculums_path %></li>
-                <li role="separator" class="divider"></li>
-                <li><%= link_to "Actualuzar Datos", edit_user_registration_path %></li>
-                <li><%= link_to "Cerrar Sesión", destroy_user_session_path, :method => :delete  %></li>
-              </ul>
-          </li>
           <% end %>
           <% if not current_user %> 
-          <li><%= link_to('Registrarse', new_user_registration_path)  %></li>
-          <li><%= link_to('Iniciar Sesión', new_user_session_path)  %></li>
           <% end %>
         </ul>    
       </nav>

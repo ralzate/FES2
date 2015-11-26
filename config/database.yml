@@ -4,7 +4,7 @@ development:
   database: test-postgres_development
   pool: 5
   username: postgres 
-  password: servidual2015
+  password: postgres
   host: localhost
   port: 5432
 
@@ -16,7 +16,7 @@ test:
   database: test-postgres_test
   pool: 5
   username: postgres 
-  password: servidual2015
+  password: postgres
   host: localhost
   port: 5432
 
@@ -26,6 +26,6 @@ production:
   database: test-postgres_production
   pool: 5
   username: postgres
-  password: servidual2015
+  password: postgres
   host: localhost
   port: 5432

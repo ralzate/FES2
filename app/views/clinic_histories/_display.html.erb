@@ -1,0 +1,132 @@
+
+
+
+
+
+<table class="table table-bordered" style="margin-top:-30px;">
+  
+
+<tr>
+      <th  colspan="5">
+        
+                            <%= form_tag request.path, :method => 'get', :class => '' do %>
+
+<div>
+  <div class="row">
+
+    <div class="col-lg-5 ">
+
+            <div class="input-group custom-search-form">
+              <%= text_field_tag :search, params[:search], :placeholder => "Busca por el Nombre", :class => 'form-control' %>
+              <span class="input-group-btn">
+
+
+<%= button_tag(type: "submit", class: "btn principal") do %>
+              <span class="glyphicon glyphicon-search"></span>
+                          <% end %>
+
+             </span>
+             </div><!-- /input-group -->
+        </div>
+  </div>
+</div>
+                    <% end %>
+
+
+
+      </th>
+
+</tr>
+
+
+  <tr class="header">
+    <th>HC #</th>
+    <th>Nombre</th>
+    <th>Identificación</th>
+    <th>Fecha</th>
+    <th>Opciones</th>
+  </tr>
+  
+<% @clinic_histories.each do |clinic_history| %>
+
+  <tr>
+
+
+    <td><%= clinic_history.id %></td>
+    <td><%= clinic_history.first_name %></td>
+    <td><%= clinic_history.document %></td>
+    <td><%= clinic_history.created_at.strftime('%b %d. %Y') %></td>
+    <td><%= link_to 'Ver Historia Clinica', patient_clinic_history_path(@patient,clinic_history), :class => "btn btn-info blanco btn-sm" %>  
+
+     &nbsp;  <%= link_to 'Editar Historia Clinica', edit_patient_clinic_history_path(@patient,clinic_history), :class => "btn btn-success blanco btn-sm" %>
+
+     &nbsp; <%= link_to 'Notas de Evolución', patient_clinic_history_progress_notes_path(@patient,clinic_history), :class => "btn btn-primary blanco btn-sm" %></td>
+
+
+  </tr>
+  
+<% end %>
+
+</table>
+
+
+<style type="text/css">
+
+.eliminar {
+    color: red;
+}
+
+</style>
+
+
+
+
+
+<style type="text/css">
+
+
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus{
+      z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #20B4BF !important;
+    border-color: #20B4BF !important;
+}
+
+.principal{
+  background-color: #20B4BF !important;
+  color: #ffffff !important;
+  border-color: #22BDC8;
+}
+
+
+.header{
+  background-color: #F2F2F2;
+  border-color: #22BDC8;
+}
+
+body {
+  padding: 0 2em;
+  font-family: 'Lato', Arial, sans-serif;
+  background: #ffffff !important;
+}
+
+h1 {
+  font-family: Verdana;
+  font-weight: normal;
+  color: #024457;
+}
+h1 span {
+  color: #167F92;
+}
+
+</style>
+
+
+
+</div>
+<style type="text/css">
+    @import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+body{margin-top:20px;}
+.fa-fw {width: 2em;}
+</style>

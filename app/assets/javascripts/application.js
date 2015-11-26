@@ -16,7 +16,6 @@
 //= require lazybox
 //= require turbolinks
 //= require bootstrap-select
-//= require bootstrap-datepicker
 //= require jquery.remotipart
 //= require_tree .
 

@@ -1,0 +1,42 @@
+<br/><br/><br/><br/>
+
+<div class="row">
+<div class="full col-sm-9 full2">
+
+
+
+
+
+    <span  class="btn btn-link btn-xs  pull-left pagination pagination"><h1 class="title">Listado de  <span>Arl</span></h1></span>
+
+
+    <span class="btn btn-link btn-xs pull-right ">  <%= will_paginate @arles, renderer: BootstrapPagination::Rails %>
+</span>
+
+    <span  class="btn btn-link btn-xs  pagination pagination pull-right"><%= link_to 'Nueva Arl', new_arl_path, remote: true, :class => "btn  principal" %></span>
+
+
+
+<div class="row new_blog">
+<div class="col-md-6" id="task-form" style="display:none;"></div>
+</div>
+
+
+
+
+
+
+
+<div class="row">
+  <div class="col-md-12 " id="tasks">
+    <%= render partial: "display" %>
+  </div>
+</div>
+</div>
+
+
+
+
+
+                                    
+             

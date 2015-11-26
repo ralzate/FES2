@@ -1,0 +1,1196 @@
+ <div class="col-md-12" style = "margin:15px!important;text-align:center;">
+
+    <%= link_to "1. Informacion General", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.first), :class=>"btn btn-info color_blanco mrg" %>
+
+    <%= link_to "2. Antesedentes Personales", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.second), :class=>"btn btn-info color_blanco mrg" %>
+
+    <%= link_to "3. Revisión por Sistemas", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.third), :class=>"btn btn-info color_blanco mrg" %>
+
+
+
+
+    <a class="btn btn-info color_blanco mrg disabled">4. Examen Fisico</a>
+
+    <a class="btn btn-info color_blanco mrg disabled">5. Impresión Diagnostica</a>
+
+
+
+</div>
+
+
+
+
+<div class="container-fluid">    
+        
+    <div id="loginbox" class="mainbox col-md-12 col-sm-12"> 
+        
+
+        
+
+<style type="text/css">
+
+.panel-heading {
+    background-image: none;
+    background-color: #ECECEC;
+    color: #5bc0de;
+}
+
+  .panel-title{
+    font-size: 30px;   
+  }
+  .pie_form{
+    background-image: none;
+    background-color: #ECECEC;
+    color: white;   
+  }
+  .line1
+  {
+    display: inline-block;
+    width: 30% !important;
+  }
+.titulo{
+  margin-top: 20px;
+  margin-bottom: -8px;
+}
+</style>
+
+
+
+<div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
+  <div class="row">
+<%= simple_form_for([@patient, @clinic_history], method: :put, url: wizard_path, :html => { :class => 'block multistep pf_form w_normal horizontal_center shadow', :id => "checkout" }) do |f| %>
+
+
+
+
+
+
+<div class="cabezera">
+<h1 class="titulo">
+  <div class="animated fadeInLeft"><span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> PASO 4:</div><div class="animated fadeInRight"> EXAMEN FISICO</div>
+</h1>
+</div>
+
+
+
+
+     </div>
+     <hr class="featurette-divider"></hr>
+
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+          <div class="col-md-3">
+            <label style = "display:block;margin-left:50px;">TA mm / HG</label>
+           <div class="row">
+           <div class="col-md-6" style = "padding-right:3px!important;">
+             
+              <%= f.input :ta_mmgh, :input_html => { :class => 'form-control fs1 ps' }, label: false %>
+          </div> 
+          <div class="col-md-6" style = "padding-left:3px!important;">
+            
+              <%= f.input :ta_mmgh, :input_html => { :class => 'form-control fs1 ps' }, label: false %>
+          </div> 
+          </div>  
+          </div>   
+ 
+          <div class="col-md-3">
+                  <label >% SAT. de O2 Ambiente </label>
+                      <%= f.text_field :sat_of_o_ambiente,  :class => 'form-control fs1 hj' %>
+                     
+              </div>
+
+          <div class="col-md-3">
+                  <label >Temperatura(C)</label>
+                      <%= f.input :temperature, :input_html => { :class => 'form-control fs1' }, label: false %>
+              </div>
+
+
+          <div class="col-md-3">
+              <label>Frecuencía Cardiaca:</label> 
+              <%= f.input :heart_rate, :input_html => { :class => 'form-control fs1' }, label: false %>
+          </div>
+
+ </div>
+<br>
+
+
+    <div class="row">
+
+
+
+
+          <div class="col-md-3">
+              <label>Frecuencía Respiratoria:</label> 
+              <%= f.input :breathing_frequency, :input_html => { :class => 'form-control fs1' }, label: false %>
+          </div>
+
+          <div class="col-md-3">
+              <label>% SAT. de 02 Suplementario:</label> 
+              <%= f.input :sat_of_o_supplementary, :input_html => { :class => 'form-control fs1' }, label: false %>
+          </div>
+ 
+
+        <div class="col-md-3">
+              <label>Peso en (Kgs)</label> 
+                      <%= f.input :weight_in_kilograms, :input_html => { :class => 'form-control fs1' }, label: false %>
+          </div>
+
+
+          <div class="col-md-3">
+              <label>Altura en (cms):</label> 
+              <%= f.input :height_in_centimeters, :input_html => { :class => 'form-control fs1' }, label: false %>
+ 
+        </div>
+ 
+ 
+    </div>
+
+    <br/>
+         </div>
+
+
+
+<div class="container-fluid">
+    <div class="row clearfix">
+    <div class="col-md-12 column">
+      <table class="table table-bordered table-hover" id="tab_logic">
+
+        <thead>
+          <tr >
+            <th  colspan="1">
+            </th>
+
+
+
+            <th  colspan="1">
+               &nbsp;Seleccionar todos&nbsp;<input type="checkbox" id="checkAll"  />
+            </th>
+
+            <th  colspan="1">
+               &nbsp;Seleccionar todos &nbsp;<input type="checkbox" id="checkAll2"  />
+            </th>
+            <th  colspan="1">
+            </th>
+
+          </tr>
+        </thead>
+        <thead>
+          <tr >
+            <th class="text-center" style="width:10%">
+              Nombre
+            </th>
+            <th class="text-center" style="width:10%">
+              Normal
+            </th>
+            <th class="text-center" style="width:10%">
+              Anormal
+            </th>
+            <th class="text-center" style="width:60%">
+              Ampliar Información
+            </th>
+          </tr>
+        </thead>
+
+
+
+
+
+
+        <tbody>
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Cabeza
+            </td>
+            <td align="center">
+              <%= f.check_box :head_true, class: 'checkItem myCheckbox1' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :head_false, class: 'checkItem2 myCheckbox12' %>
+            </td>
+            <td>
+            <%= f.text_field :head_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+
+   
+
+
+
+
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Cuello
+            </td>
+            <td align="center">
+              <%= f.check_box :neck_true, class: 'checkItem myCheckbox2' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :neck_false, class: 'checkItem2 myCheckbox22' %>
+            </td>
+            <td>
+            <%= f.text_field :neck_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+
+
+
+
+
+
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Organo de los Sentidos
+            </td>
+            <td align="center">
+              <%= f.check_box :sense_organ_true, class: 'checkItem myCheckbox3' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :sense_organ_false, class: 'checkItem2 myCheckbox32' %>
+            </td>
+            <td>
+            <%= f.text_field :sense_organ_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Caja Toracica
+            </td>
+            <td align="center">
+              <%= f.check_box :rib_cage_true, class: 'checkItem myCheckbox4' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :rib_cage_false, class: 'checkItem2 myCheckbox42' %>
+            </td>
+            <td>
+            <%= f.text_field :rib_cage_description, class: 'form-control' %>
+
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Corazón
+            </td>
+            <td align="center">
+              <%= f.check_box :heart_true, class: 'checkItem myCheckbox5' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :heart_false, class: 'checkItem2 myCheckbox52' %>
+            </td>
+            <td>
+            <%= f.text_field :heart_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Pulmones
+            </td>
+            <td align="center">
+              <%= f.check_box :lungs_true, class: 'checkItem myCheckbox6' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :lungs_false, class: 'checkItem2 myCheckbox62' %>
+            </td>
+            <td>
+            <%= f.text_field :lungs_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Abdomen
+            </td>
+            <td align="center">
+              <%= f.check_box :abdomen_true, class: 'checkItem myCheckbox7' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :abdomen_false, class: 'checkItem2 myCheckbox72' %>
+            </td>
+            <td>
+            <%= f.text_field :abdomen_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Genito urinario
+            </td>
+            <td align="center">
+              <%= f.check_box :genitourinary_true, class: 'checkItem myCheckbox8' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :genitourinary_false, class: 'checkItem2 myCheckbox82' %>
+            </td>
+            <td>
+            <%= f.text_field :genitourinary_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Recto
+            </td>
+            <td align="center">
+              <%= f.check_box :rectum_true, class: 'checkItem myCheckbox9' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :rectum_false, class: 'checkItem2 myCheckbox92' %>
+            </td>
+            <td>
+            <%= f.text_field :rectum_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Extremidades
+            </td>
+            <td align="center">
+              <%= f.check_box :extremities_true, class: 'checkItem myCheckbox10' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :extremities_false, class: 'checkItem2 myCheckbox102' %>
+            </td>
+            <td>
+            <%= f.text_field :extremities_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Piel y Faneras
+            </td>
+            <td align="center">
+              <%= f.check_box :piel_y_faneras2_true, class: 'checkItem myCheckbox11' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :piel_y_faneras2_false, class: 'checkItem2 myCheckbox112' %>
+            </td>
+            <td>
+            <%= f.text_field :piel_y_faneras2_descripcion, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Musculo esqueletico
+            </td>
+            <td align="center">
+              <%= f.check_box :skeletal_muscle_true, class: 'checkItem myCheckbox12' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :skeletal_muscle_false, class: 'checkItem2 myCheckbox122' %>
+            </td>
+            <td>
+            <%= f.text_field :skeletal_muscle_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Mental
+            </td>
+            <td align="center">
+              <%= f.check_box :mental_true, class: 'checkItem myCheckbox13' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :mental_false, class: 'checkItem2 myCheckbox132' %>
+            </td>
+            <td>
+            <%= f.text_field :mental_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Nuurologico
+            </td>
+            <td align="center">
+              <%= f.check_box :neurological_true, class: 'checkItem myCheckbox14' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :neurological_false, class: 'checkItem2 myCheckbox142' %>
+            </td>
+            <td>
+            <%= f.text_field :neurological_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+ <table class="table table-bordered table-hover" id="tab_logic">
+
+        <thead>
+          <tr >
+            
+            <th  colspan="10" style = "text-align:left!important;">
+           ALTERACIÓN
+            </th>
+      </tr>
+      <tr >
+            <th  colspan="1" style = "text-align:right!important;">
+            <%= label_tag 'alteration_de_sensibilidad', 'De Sensibilidad' %>
+            </th>
+            <th  colspan="1" >
+             <%= check_box_tag 'clinic_history[alteration][]', 'De Sensibilidad', checked('De Sensibilidad'), id: 'alteration_de_sensibilidad' %>
+            </th>
+
+             <th  colspan="1" style = "text-align:right!important;">
+           <%= label_tag 'alteration_de_motricidad', 'De Motricidad' %>
+            </th>
+            <th  colspan="1" >
+             <%= check_box_tag 'clinic_history[alteration][]', 'De Motricidad', checked('De Motricidad'), id: 'alteration_de_motricidad' %>
+            </th>
+
+            <th  colspan="1" style = "text-align:right!important;">
+           <%= label_tag 'alteration_cognitiva', 'Cognitiva' %>
+            </th>
+            <th  colspan="1" >
+            <%= check_box_tag 'clinic_history[alteration][]', 'Cognitiva', checked('Cognitiva'), id: 'alteration_cognitiva' %>
+            </th>
+
+             <th  colspan="1" style = "text-align:right!important;">
+           <%= label_tag 'alteration_sensorial', 'Sensorial' %>
+            </th>
+            <th  colspan="1" >
+            <%= check_box_tag 'clinic_history[alteration][]', 'Sensorial', checked('Sensorial'), id: 'alteration_sensorial' %>
+            </th>
+
+             <th  colspan="1" style = "text-align:right!important;">
+          <%= label_tag 'alteration_del_lenguaje', 'Del Lenguaje' %>
+            </th>
+            <th  colspan="1" >
+             <%= check_box_tag 'clinic_history[alteration][]', 'Del Lenguaje', checked('Del Lenguaje'), id: 'alteration_del_lenguaje' %>
+            </th>
+
+
+
+      </tr>
+
+
+      </thead>
+  </table>
+<hr>
+   <table class="table table-bordered table-hover sig" id="tab_logic">
+
+        <thead>
+          <tr >
+            <th  colspan="1" style = "width:33%!important;">
+           APERTURA OCULAR
+            </th>
+            <th  colspan="1" style = "width:33%!important;">
+            RESPUESTA VERBAL
+            </th>
+
+             <th  colspan="1" style = "width:33%!important;">
+           RESPUESTA MOTORA
+           </th>
+      </thead>
+
+      </tr>
+      <tr >
+            <td  colspan="1" style = "width:33%!important;">
+            <%= f.label "4 - espontanea" %>
+                <%= f.radio_button(:eye_opening, "4".to_i, class: "calc" )%>
+            </th>
+            <td  colspan="1" style = "width:33%!important;">
+             <%= f.label "5 - orientada" %>
+                <%= f.radio_button(:verbal_answer, "5".to_i, class: "calc" )%>
+            </th>
+
+             <td  colspan="1" style = "width:33%!important;">
+          
+                <%= f.label "6 - obedece ordenes" %>
+                <%= f.radio_button(:motor_response, "6".to_i , class: "calc") %>
+            </th>
+            
+
+      </tr>
+  <tr >
+            <td  colspan="1" style = "width:33%!important;">
+              <%= f.label "3 - al llamado" %>
+                <%= f.radio_button(:eye_opening, "3".to_i, class: "calc" )%>
+            </th>
+            <td  colspan="1" style = "width:33%!important;">
+           <%= f.label "4 - confusa" %>
+                <%= f.radio_button(:verbal_answer, "4".to_i, class: "calc" )%>
+            </th>
+
+             <td  colspan="1" style = "width:33%!important;"t>
+          
+                
+                <%= f.label "5 - localiza estimulos" %>
+                <%= f.radio_button(:motor_response, "5".to_i , class: "calc")%>
+            </th>
+            
+
+      </tr>
+       <tr >
+            <td  colspan="1" style = "width:33%!important;">
+               <%= f.label "2 - aldolor" %>
+                <%= f.radio_button(:eye_opening, "2".to_i, class: "calc" )%>
+            </th>
+            <td  colspan="1" style = "width:33%!important;">
+             <%= f.label "3 - palabras" %>
+                <%= f.radio_button(:verbal_answer, "3".to_i, class: "calc" )%>
+            </th>
+
+             <td  colspan="1" style = "width:33%!important;">
+          
+                
+                <%= f.label "4 - retira el dolor" %>
+                <%= f.radio_button(:motor_response, "4".to_i , class: "calc")%>
+            </th>
+            
+
+      </tr>
+      <tr >
+            <td  colspan="1" style = "width:33%!important;">
+               <%= f.label "1 - no apertura" %>
+                <%= f.radio_button(:eye_opening, "1".to_i, class: "calc" )%>
+            </th>
+            <td  colspan="1" style = "width:33%!important;">
+              <%= f.label "2- sonidos" %>
+                <%= f.radio_button(:verbal_answer, "2".to_i, class: "calc" )%>
+            </th>
+
+             <td  colspan="1" style = "width:33%!important;">
+          
+                
+                 <%= f.label "3 - retira en flexión" %>
+                <%= f.radio_button(:motor_response, "3".to_i , class: "calc")%>
+            </th>
+            
+
+      </tr>
+       <tr >
+            <td  colspan="1" style = "width:33%!important;">
+       
+            </th>
+            <td  colspan="1" >
+              <%= f.label "1- ninguna" %>
+                <%= f.radio_button(:verbal_answer, "1".to_i, class: "calc" )%>
+            </th>
+
+             <td  colspan="1" style = "width:33%!important;">
+          
+                
+                     
+                <%= f.label "2- retira en extensión" %>
+                <%= f.radio_button(:motor_response, "2".to_i , class: "calc")%>
+            </td>
+            
+
+      </tr>
+      <tr >
+            <td  colspan="1" style = "width:33%!important;">
+       
+            </th>
+            <td  colspan="1" >
+             
+            </th>
+
+             <td  colspan="1" style = "width:33%!important;">
+          
+                
+              <%= f.label "1 - sin_respuesta" %>
+                <%= f.radio_button(:motor_response, "1".to_i , class: "calc")%>
+            </th>
+            
+
+      </tr>
+
+
+
+  </table>
+<hr>
+
+
+
+
+
+
+
+
+
+<table class="table table-bordered table-hover vital">
+  <thead>
+      <tr>
+          <th ><span class="option" > APERTURA OCULAR  </span></th>
+          <td><span>Longer Column Header</span>
+          <hr>
+          <span>Longer Column Header</span>
+          <hr>
+          <span>Longer Column Header</span>
+          <hr>
+          <span>Longer Column Header</span>
+                    <hr>
+          <span>Longer Column Header</span>
+                    <hr>
+          <span>Longer Column Header</span>
+          </td>
+
+          <th><span class="option"> RESPUESTA VERBAL </span></th>
+          <td><span>Longer Column Header</span>
+          <hr>
+          <span>Longer Column Header</span>
+          <hr>
+          <span>Longer Column Header</span>
+          <hr>
+          <span>Longer Column Header</span>
+                    <hr>
+          <span>Longer Column Header</span>
+                    <hr>
+          <span>Longer Column Header</span>
+          </td>
+
+
+          <th><span class="option"> RESPUESTA MOTORA</span></th>
+          <td><span>Longer Column Header</span>
+          <hr>
+          <span>Longer Column Header</span>
+          <hr>
+          <span>Longer Column Header</span>
+          <hr>
+          <span>Longer Column Header</span>
+                    <hr>
+          <span>Longer Column Header</span>
+                    <hr>
+
+                
+              <%= f.label "1 - sin_respuesta" %>
+                <%= f.radio_button(:motor_response, "1".to_i , class: "calc")%>
+
+
+          </td>
+
+      </tr>
+
+</thead>
+
+</table>
+
+<style type="text/css">
+
+.option {
+  width: 10px !important;
+  margin-top:-100px !important;
+  margin-right: -10px; 
+  writing-mode: tb-rl;
+  filter: flipv fliph;
+  -webkit-transform:rotate(-90deg); 
+  white-space:nowrap; 
+  display:block;
+}
+
+</style>
+
+
+<script type="text/javascript">
+  $(function() {
+    var header_height = 0;
+    $('table th span').each(function() {
+        if ($(this).outerWidth() > header_height) header_height = $(this).outerWidth();
+    });
+
+    $('table th').height(header_height);
+});
+</script>
+
+
+
+
+
+
+   <table class="table table-bordered table-hover sig" id="tab_logic">
+
+        <thead>
+          <tr >
+            <th  colspan="1" style = "width:20%!important;">
+            </th>
+            <th  colspan="1" style = "width:80%!important;">
+            </th>
+
+          </tr> 
+      </thead>
+
+      <tr >
+            <th  colspan="1" >
+        <label>Escala De Glasgow </label> <br/>
+  
+<%= f.number_field :escala_de_glasgow, class: 'form-control gls' , :readonly => true, id: 'sum'  %><span sytle = "font-size:20px!important;"> /15</span> 
+            </td>
+           
+
+      </tr>
+
+
+
+  </table>
+
+
+
+
+
+<table class="table table-bordered table-hover ult" id="tab_logic">
+
+        <thead>
+          <tr >
+            
+            <th  colspan="10" style = "text-align:left!important;">
+           OTROS SIGNOS
+            </th>
+      </tr>
+      <tr >
+            <th  colspan="1" >
+            <%= label_tag 'other_signs_discoria', 'Discoria' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'Discoria', checked('Discoria'), id: 'other_signs_discoria' %>
+
+            </th>
+            <th  colspan="1" >
+            <%= label_tag 'other_signs_miosis', 'Miosis' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'Miosis', checked('Miosis'), id: 'other_signs_miosis' %>
+            </th>
+
+             <th  colspan="1" >
+         <%= label_tag 'other_signs_midriosis', 'Midriosis' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'Midriosis', checked('Midriosis'), id: 'other_signs_midriosis' %>
+            </th>
+            <th  colspan="1" >
+             <%= label_tag 'other_signs_pupilas_fijas', 'Pupilas Fijas' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'Pupilas Fijas', checked('Pupilas Fijas'), id: 'other_signs_pupilas_fijas' %>
+
+            </th>
+            <th  colspan="1" >
+             <%= label_tag 'other_signs_nistagmus', 'Nistagmus' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'Nistagmus', checked('Nistagmus'), id: 'other_signs_nistagmus' %>
+
+            </th>
+            <th  colspan="1" >
+            <%= label_tag 'other_signs_fotomotor', 'FotoMotor' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'FotoMotor', checked('FotoMotor'), id: 'other_signs_fotomotor' %>
+
+            </th>
+</tr >
+ <tr >
+
+
+            <th  colspan="1" >
+          <%= label_tag 'other_signs_consciente', 'Consciente' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'Consciente', checked('Consciente'), id: 'other_signs_consciente' %>
+
+            </th>
+            <th  colspan="1" >
+          <%= label_tag 'other_signs_orientado', 'Orientado' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'Orientado', checked('Orientado'), id: 'other_signs_orientado' %>
+
+            </th>
+
+             <th  colspan="1" >
+          <%= label_tag 'other_signs_desorientado', 'Desorientado' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'Desorientado', checked('Desorientado'), id: 'other_signs_desorientado' %>
+
+            </th>
+            <th  colspan="1" >
+          
+    <%= label_tag 'other_signs_agitado', 'Agitado' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'Agitado', checked('Agitado'), id: 'other_signs_agitado' %>
+
+
+            </th>
+                <th  colspan="1" >
+          <%= label_tag 'other_signs_deprimido', 'Deprimido' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'Deprimido', checked('Deprimido'), id: 'other_signs_deprimido' %>
+            </th>
+            <th  colspan="1" >
+            <%= label_tag 'other_signs_inconsciente', 'Inconsciente' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'Inconsciente', checked('Inconsciente'), id: 'other_signs_inconsciente' %>
+
+
+            </th>
+</tr >
+
+
+      </thead>
+  </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br/>
+<br/>
+
+
+
+
+
+         <div class="well pie_form">
+
+                <div class="form-actions"  style = "text-align:center!important"> 
+                <%= link_to "Regresar", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.third), :class=>"btn btn-info color_blanco custom" %>
+                    
+                        <button type="rese  t" class="btn btn btn-info custom" style = "margin-right:20px;margin-left:20px;">Borrar</button>
+                        <%= f.submit "Siguiente", :class => 'btn btn btn-info  custom' %>
+                    
+                </div>
+              </div>
+
+
+  </div>
+</div>
+
+
+
+
+            <% end %>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+
+
+$('#checkAll').click(function () {    
+    $(':checkbox.checkItem').prop('checked', this.checked);    
+    $(':checkbox.checkItem2').prop('checked', false);    
+    $( "#checkAll2" ).prop( "checked", false );
+
+ });
+$('#checkAll2').click(function () {    
+    $(':checkbox.checkItem2').prop('checked', this.checked);    
+    $(':checkbox.checkItem').prop('checked', false);    
+    $( "#checkAll" ).prop( "checked", false );
+
+ });
+
+
+
+////////////////
+$('.myCheckbox1').click(function () {    
+    $('.myCheckbox1').prop('checked', this.checked);    
+    $('.myCheckbox12').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox12').click(function () {    
+    $('.myCheckbox12').prop('checked', this.checked);    
+    $('.myCheckbox1').prop('checked', false);    
+    
+
+ });
+///////////////
+
+$('.myCheckbox2').click(function () {    
+    $('.myCheckbox2').prop('checked', this.checked);    
+    $('.myCheckbox22').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox22').click(function () {    
+    $('.myCheckbox22').prop('checked', this.checked);    
+    $('.myCheckbox2').prop('checked', false);    
+    
+
+ });
+///////////////
+$('.myCheckbox3').click(function () {    
+    $('.myCheckbox3').prop('checked', this.checked);    
+    $('.myCheckbox32').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox32').click(function () {    
+    $('.myCheckbox32').prop('checked', this.checked);    
+    $('.myCheckbox3').prop('checked', false);    
+    
+
+ });
+
+$('.myCheckbox4').click(function () {    
+    $('.myCheckbox4').prop('checked', this.checked);    
+    $('.myCheckbox42').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox42').click(function () {    
+    $('.myCheckbox42').prop('checked', this.checked);    
+    $('.myCheckbox4').prop('checked', false);    
+    
+
+ });
+
+
+$('.myCheckbox5').click(function () {    
+    $('.myCheckbox5').prop('checked', this.checked);    
+    $('.myCheckbox52').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox52').click(function () {    
+    $('.myCheckbox52').prop('checked', this.checked);    
+    $('.myCheckbox5').prop('checked', false);    
+    
+
+ });
+
+
+$('.myCheckbox6').click(function () {    
+    $('.myCheckbox6').prop('checked', this.checked);    
+    $('.myCheckbox62').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox62').click(function () {    
+    $('.myCheckbox62').prop('checked', this.checked);    
+    $('.myCheckbox6').prop('checked', false);    
+    
+
+ });
+
+
+$('.myCheckbox7').click(function () {    
+    $('.myCheckbox7').prop('checked', this.checked);    
+    $('.myCheckbox72').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox72').click(function () {    
+    $('.myCheckbox72').prop('checked', this.checked);    
+    $('.myCheckbox7').prop('checked', false);    
+    
+
+ });
+
+
+$('.myCheckbox8').click(function () {    
+    $('.myCheckbox8').prop('checked', this.checked);    
+    $('.myCheckbox82').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox82').click(function () {    
+    $('.myCheckbox82').prop('checked', this.checked);    
+    $('.myCheckbox8').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox9').click(function () {    
+    $('.myCheckbox9').prop('checked', this.checked);    
+    $('.myCheckbox92').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox92').click(function () {    
+    $('.myCheckbox92').prop('checked', this.checked);    
+    $('.myCheckbox9').prop('checked', false);    
+    
+
+ });
+
+
+$('.myCheckbox10').click(function () {    
+    $('.myCheckbox10').prop('checked', this.checked);    
+    $('.myCheckbox102').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox102').click(function () {    
+    $('.myCheckbox102').prop('checked', this.checked);    
+    $('.myCheckbox10').prop('checked', false);    
+    
+
+ });
+
+
+$('.myCheckbox11').click(function () {    
+    $('.myCheckbox11').prop('checked', this.checked);    
+    $('.myCheckbox112').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox112').click(function () {    
+    $('.myCheckbox112').prop('checked', this.checked);    
+    $('.myCheckbox11').prop('checked', false);    
+    
+
+ });
+
+
+$('.myCheckbox12').click(function () {    
+    $('.myCheckbox12').prop('checked', this.checked);    
+    $('.myCheckbox122').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox122').click(function () {    
+    $('.myCheckbox122').prop('checked', this.checked);    
+    $('.myCheckbox12').prop('checked', false);    
+    
+
+ });
+
+
+$('.myCheckbox13').click(function () {    
+    $('.myCheckbox13').prop('checked', this.checked);    
+    $('.myCheckbox132').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox132').click(function () {    
+    $('.myCheckbox132').prop('checked', this.checked);    
+    $('.myCheckbox13').prop('checked', false);    
+    
+
+ });
+
+
+$('.myCheckbox14').click(function () {    
+    $('.myCheckbox14').prop('checked', this.checked);    
+    $('.myCheckbox142').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox142').click(function () {    
+    $('.myCheckbox142').prop('checked', this.checked);    
+    $('.myCheckbox14').prop('checked', false);    
+    
+
+ });
+
+
+
+
+  function calcscore(){
+    var score = 0;
+    $(".calc:checked").each(function(){
+        score+=parseInt($(this).val(),10);
+    });
+    $("#sum" ).val(score)
+}
+$().ready(function(){
+    $(".calc").change(function(){
+        calcscore()
+    });
+});
+
+
+
+</script>

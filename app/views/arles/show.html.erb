@@ -1,0 +1,350 @@
+
+
+
+
+
+
+
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="wrapper">
+  <div class="info-panel">
+    <div class="logo"></div>
+    <div class="info-panel__main">
+      <h1>Arl Ingresado Satisfactoriamente</h1>
+      <br/>
+      <h2>Gracias por Ingresar la información</h2>
+            <div   align="center">
+
+                <h3 class="panel-title-fd">Datos del arl # <%= @arl.id %></h3>
+
+
+
+
+
+
+                <div class="media">
+                  
+                  <%= image_tag "Models/arl.png", :class => 'imagelink' %>
+
+                  <style type="text/css">
+                    .imagelink{
+                      width: 104px; height: 104px;
+                    }
+                  </style>
+                  <br/>
+                  <br/>
+
+
+
+                  <div class="media-body">
+                    <h4 class="media-heading color_blanco"><b>Nombre:</b> <%= @arl.name %></h4>
+
+                  </div>
+
+
+              </div>
+
+<br/>
+<div align="center">
+  
+              <div class="ui-group-buttons">
+
+                <%= link_to "Editar Arl", edit_arl_path(@arl), :class => 'button btn btn-success blanco'%>
+
+                <div class="or"></div>
+
+                <%= link_to  "Regresar al listado", arles_path,   :class => 'button btn btn-primary blanco' %>
+</div>
+        </div>
+    </div>
+  </div>
+<br/><br/>
+
+    
+
+
+
+
+
+
+
+      </div>
+        </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+<style type="text/css">
+  @import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
+.panel-heading-fd{
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    background: #39b1cc;
+    background: -moz-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #51bbd2), color-stop(100%, #2d97af));
+    background: -webkit-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+    background: -o-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+    background: -ms-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+    background: linear-gradient(to bottom, #51bbd2 0%, #2d97af 100%);
+    color: #ffffff;
+    padding: 5px 17px 8px;
+
+}
+
+.panel-title-fd{
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    /*color: #d3eced;*/
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+</style>
+
+
+
+
+
+
+<style type="text/css">
+.ui-group-buttons .or{position:relative;float:left;width:.3em;height:1.3em;z-index:3;font-size:12px}
+.ui-group-buttons .or:before{position:absolute;top:50%;left:50%;content:'or';background-color:#5a5a5a;margin-top:-.1em;margin-left:-.9em;width:1.8em;height:1.8em;line-height:1.55;color:#fff;font-style:normal;font-weight:400;text-align:center;border-radius:500px;-webkit-box-shadow:0 0 0 1px rgba(0,0,0,0.1);box-shadow:0 0 0 1px rgba(0,0,0,0.1);-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box}
+.ui-group-buttons .or:after{position:absolute;top:0;left:0;content:' ';width:.3em;height:2.84em;background-color:rgba(0,0,0,0);border-top:.6em solid #5a5a5a;border-bottom:.6em solid #5a5a5a}
+.ui-group-buttons .or.or-lg{height:1.3em;font-size:16px}
+.ui-group-buttons .or.or-lg:after{height:2.85em}
+.ui-group-buttons .or.or-sm{height:1em}
+.ui-group-buttons .or.or-sm:after{height:2.5em}
+.ui-group-buttons .or.or-xs{height:.25em}
+.ui-group-buttons .or.or-xs:after{height:1.84em;z-index:-1000}
+.ui-group-buttons{display:inline-block;vertical-align:middle}
+.ui-group-buttons:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.ui-group-buttons .btn{float:left;border-radius:0}
+.ui-group-buttons .btn:first-child{margin-left:0;border-top-left-radius:.25em;border-bottom-left-radius:.25em;padding-right:15px}
+.ui-group-buttons .btn:last-child{border-top-right-radius:.25em;border-bottom-right-radius:.25em;padding-left:15px}
+</style>
+
+  </center>
+  <br>
+ </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+  @import url(http://fonts.googleapis.com/css?family=Karla:700,400);
+h1, h2 {
+  color: white;
+  font-family: 'Karla-Bold', Helvetica Neue, Helvetica, sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 1em;
+  margin-top: 0;
+  line-height: 1.6em;
+}
+
+p {
+  font-family: 'Karla-Regular', Helvetica Neue, Helvetica, sans-serif;
+  line-height: 1.4em;
+  font-weight: 400;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.logo,
+.info-panel__main {
+  -moz-transform: translateY(3em);
+  -ms-transform: translateY(3em);
+  -webkit-transform: translateY(3em);
+  transform: translateY(3em);
+}
+
+.logo {
+  background: url("http://mperrotti.com/img/icons.svg") no-repeat #167f92 18px 20px;
+  border-radius: 999em;
+  border: .75em solid white;
+  height: 6em;
+  margin: 0 auto;
+  position: relative;
+  width: 6em;
+  z-index: 2;
+}
+
+.info-panel .info-panel__main {
+  background: #167f92;
+  border-radius: .25em .25em 0 0;
+  margin-top: -4em;
+  padding: 4em 2em 2em 2em;
+  position: relative;
+  z-index: 1;
+}
+.info-panel .info-panel__main .info-panel__social {
+  margin: 2em auto 0 auto;
+  width: 175px;
+}
+.info-panel .info-panel__main .info-panel__social a {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  height: 24px;
+  margin: 0 .5em;
+  width: 24px;
+}
+.info-panel .info-panel__main .info-panel__social a[href*="dribbble"] {
+  background: url("http://mperrotti.com/img/icons.svg") no-repeat transparent 0 -73px;
+}
+.info-panel .info-panel__main .info-panel__social a[href*="github"] {
+  background: url("http://mperrotti.com/img/icons.svg") no-repeat transparent 0 -108px;
+}
+.info-panel .info-panel__main .info-panel__social a[href*="twitter"] {
+  background: url("http://mperrotti.com/img/icons.svg") no-repeat transparent 0 -144px;
+}
+.info-panel .info-panel__main .info-panel__social a[href*="last.fm"] {
+  background: url("http://mperrotti.com/img/icons.svg") no-repeat transparent 0 -177px;
+}
+.info-panel .info-panel__bio {
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  background: #141926;
+  max-height: 0em;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+.info-panel .info-panel__bio p {
+  border-top: 1px solid white;
+  color: white;
+  margin: 0 auto;
+  padding: 2em 1em;
+  width: 70%;
+}
+
+.info-panel__pull-tab {
+  background: #68c18f;
+  border-radius: 0 0 .25em .25em;
+  display: block;
+  height: 1em;
+  position: relative;
+  top: 3em;
+  /*  &:after {
+        content: '';
+        position: absolute;
+        border-width: 1em 1em 0;
+        border-style: solid;
+        border-color: $accent transparent;
+        bottom: -1em;
+        display: block;
+        left: 50%;
+        margin-left: -1em;
+        width: 0;
+      }*/
+}
+
+/* ------ Expanded info styles ------ */
+.logo,
+.info-panel__main,
+.info-panel__bio {
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  -webkit-backface-visibility: hidden;
+}
+
+.info-panel__pull-tab {
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.is-expanded .logo,
+.is-expanded .info-panel__main,
+.is-expanded .info-panel__bio {
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  -webkit-backface-visibility: hidden;
+}
+.is-expanded .info-panel__pull-tab {
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.is-expanded .logo,
+.is-expanded .info-panel__main,
+.is-expanded .info-panel__bio {
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+.is-expanded .info-panel__bio {
+  max-height: 15em;
+}
+.is-expanded .info-panel__pull-tab {
+  top: 0;
+}
+.is-expanded .info-panel__pull-tab:after {
+  border-width: 0 1em 1em;
+  bottom: auto;
+  top: -1em;
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,195 @@
+ <div class="col-md-12" style = "margin:15px!important;text-align:center;">
+
+    <%= link_to "1. Informacion General", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.first), :class=>"btn btn-info color_blanco mrg" %>
+
+    <%= link_to "2. Antesedentes Personales", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.second), :class=>"btn btn-info color_blanco mrg" %>
+
+    <%= link_to "3. Revisión por Sistemas", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.third), :class=>"btn btn-info color_blanco mrg" %>
+
+
+    <%= link_to "4. Examen Fisico", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.fourth), :class=>"btn btn-info color_blanco mrg" %>
+
+
+    <a class="btn btn-info color_blanco mrg disabled">5. Impresión Diagnostica</a>
+
+
+
+
+</div>
+
+
+
+
+<div class="container-fluid">    
+        
+    <div id="loginbox" class="mainbox col-md-12 col-sm-12"> 
+        
+
+        
+
+<style type="text/css">
+
+.panel-heading {
+    background-image: none;
+    background-color: #ECECEC;
+    color: #5bc0de;
+}
+
+  .panel-title{
+    font-size: 30px;   
+  }
+  .pie_form{
+    background-image: none;
+    background-color: #ECECEC;
+    color: white;   
+  }
+  .line1
+  {
+    display: inline-block;
+    width: 30% !important;
+  }
+.titulo{
+  margin-top: 20px;
+  margin-bottom: -8px;
+}
+</style>
+
+
+
+<div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
+  <div class="row">
+<%= simple_form_for([@patient, @clinic_history], method: :put, url: wizard_path, :html => { :class => 'block multistep pf_form w_normal horizontal_center shadow', :id => "checkout" }) do |f| %>
+
+
+
+
+
+
+<div class="cabezera">
+<h1 class="titulo">
+  <div class="animated fadeInLeft"><span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> PASO 5:</div><div class="animated fadeInRight"> IMPRESIÓN DIAGNOSTICA</div>
+</h1>
+</div>
+
+
+
+
+     </div>
+     <hr class="featurette-divider"></hr>
+
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <form class="form-horizontal span6">
+        <fieldset>
+       
+
+       
+          <div class="form-group">
+            <div class="controls">
+              <div class="row">
+                <div class="col-sm-3 col-md-6">
+                            <label class="control-label">Analisis</label>
+
+                        <%= f.text_area :analysis, class: 'form-control' %>
+
+
+                </div>
+                <div class="col-sm-3 col-md-6">
+                    <label class="control-label">Diagnostico</label>
+                        <%= f.text_area :print_diagnosed, class: 'form-control'  %>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+
+       
+          <div class="form-group">
+            <div class="controls">
+              <div class="row">
+                
+                <div class="col-sm-3 col-md-6">
+                  <label class="control-label">Plan y Tratamiento</label>
+                        <%= f.text_area :plan_and_treatment, class: 'form-control' %>
+
+                </div>
+                <div class="col-sm-3 col-md-6">
+                            <label class="control-label">Observaciones / Recomendaciones</label>
+
+
+                        <%= f.text_area :observations_recommendations, class: 'form-control'  %>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+<br/>
+
+
+         <div class="well pie_form">
+
+                <div class="form-actions"  style = "text-align:center!important"> 
+                    <%= link_to "Regresar al Paso 4", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.fourth), :class=>"btn btn-info color_blanco custom" %>
+                    
+                        <button type="reset" class="btn btn btn-info custom" style = "margin-right:20px;margin-left:20px; ">Borrar</button>
+                        <%= f.submit 'Guardar', :class => 'btn btn-info custom' %>
+                    
+                </div>
+              </div>
+
+
+            
+
+
+
+
+        </div>
+
+
+  </div>
+</div>
+            <% end %>
+
+
+
+
+</div>
+
+
+
+
+
+
+          
+       
+       
+
+        </fieldset>
+    </div>
+  </div>
+</div>
+
+
+
+   
+
+
+
+
+
+
+
+                    

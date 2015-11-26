@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+
+  resources :personas
   resources :administrar_usuarios
   resources :roles
   resources :curriculums
@@ -13,6 +16,58 @@ Rails.application.routes.draw do
   resources :informacion_academica
   devise_for :users
   root to: "profesiones#index"
+
+  resources :airports , :path => "aeropuertos"
+  resources :cities , :path => "ciudades"
+  resources :arles
+  resources :epses
+  resources :users, :path => "usuarios"
+  resources :roles, :path => "roles"
+  resources :departments, :path => "departamentos"
+  resources :countries, :path => "paises"
+  resources :arles, :path => "arls"
+  resources :epses, :path => "eps"
+  
+
+  get 'reset_passwords/new'
+
+  get 'pages/home'
+  get 'pages/contact'
+  get 'pages/help'
+  
+  resources :products
+  resources :sessions
+  resources :reset_passwords, only: [:new, :create, :update, :edit]
+
+  resources :messages do
+    member do
+      post :new
+    end
+  end
+
+  resources :conversations do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+    collection do
+      get :trashbin
+      post :empty_trash
+    end
+  end
+
+
+
+  resources :patients, :path => "pascientes", only: [:new, :create, :index, :destroy, :show, :edit, :update]  do
+    resources :clinic_histories, :path => "historias_clinicas", only: [:new, :create, :index, :destroy, :show, :edit, :update] do
+      resources :steps, only: [:show, :update, :edit], controller: 'clinic_history/steps'
+      resources :progress_notes, :path => "nota_de_evolucion"
+    end
+  end
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
